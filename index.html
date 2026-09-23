@@ -24,11 +24,13 @@
 <a-scene
   mindar-image="imageTargetSrc: ./targets.mind;"
   color-space="sRGB"
-  renderer="colorManagement: true, physicallyCorrectLights; alpha: true;"
+  renderer="colorManagement: true; alpha: true;"
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false">
 
-  <a-assets id="assets"></a-assets>
+  <a-assets>
+    <img id="dogFrame" crossorigin="anonymous">
+  </a-assets>
 
   <a-camera
     position="0 0 0"
@@ -40,15 +42,16 @@
     mindar-image-target="targetIndex: 0">
 
     <a-plane
-      id="dogAnimation"
+      id="dog"
       position="0 0 0.01"
       width="1"
       height="1"
       material="
+        shader: flat;
         transparent: true;
         alphaTest: 0.01;
-        side: double;
-        shader: flat;">
+        depthWrite: false;
+        side: double;">
     </a-plane>
 
   </a-entity>
@@ -60,86 +63,80 @@
   const FPS = 2;
 
   const target = document.querySelector("#target");
-  const dog = document.querySelector("#dogAnimation");
-  const assets = document.querySelector("#assets");
+  const dog = document.querySelector("#dog");
+  const image = document.querySelector("#dogFrame");
 
-  const frames = [];
+  let currentFrame = 1;
+  let timer = null;
 
-  // Cargar los 16 PNG
-  for (let i = 1; i <= FRAME_COUNT; i++) {
+  function frameURL(frame) {
+    const number = String(frame).padStart(6, "0");
 
-    const number = String(i).padStart(6, "0");
-
-    const img = document.createElement("img");
-
-    img.id = `dogFrame${i}`;
-
-    img.src =
-      `./dream8/Dream%208_${number}.png`;
-
-    img.crossOrigin = "anonymous";
-
-    assets.appendChild(img);
-
-    frames.push(img);
+    return `./dream8/Dream%208_${number}.png`;
   }
 
-  let currentFrame = 0;
-  let animationTimer = null;
+  function showFrame(frame) {
 
-  function showFrame(index) {
+    image.onload = () => {
 
-    dog.setAttribute(
-      "material",
-      "src",
-      `#dogFrame${index + 1}`
-    );
+      dog.setAttribute("material", {
+        src: image,
+        shader: "flat",
+        transparent: true,
+        alphaTest: 0.01,
+        depthWrite: false,
+        side: "double"
+      });
 
+      const mesh = dog.getObject3D("mesh");
+
+      if (mesh && mesh.material) {
+        mesh.material.transparent = true;
+        mesh.material.alphaTest = 0.01;
+        mesh.material.depthWrite = false;
+        mesh.material.needsUpdate = true;
+      }
+    };
+
+    image.src = frameURL(frame);
   }
 
   function startAnimation() {
 
-    if (animationTimer) return;
+    if (timer) return;
 
-    currentFrame = 0;
-
+    currentFrame = 1;
     showFrame(currentFrame);
 
-    animationTimer = setInterval(() => {
+    timer = setInterval(() => {
 
-      currentFrame =
-        (currentFrame + 1) % FRAME_COUNT;
+      currentFrame++;
+
+      if (currentFrame > FRAME_COUNT) {
+        currentFrame = 1;
+      }
 
       showFrame(currentFrame);
 
     }, 1000 / FPS);
-
   }
 
   function stopAnimation() {
 
-    if (animationTimer) {
-      clearInterval(animationTimer);
-      animationTimer = null;
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
     }
 
-    currentFrame = 0;
-    showFrame(0);
-
+    currentFrame = 1;
+    showFrame(1);
   }
 
-  target.addEventListener(
-    "targetFound",
-    startAnimation
-  );
-
-  target.addEventListener(
-    "targetLost",
-    stopAnimation
-  );
+  target.addEventListener("targetFound", startAnimation);
+  target.addEventListener("targetLost", stopAnimation);
 
   window.addEventListener("load", () => {
-    showFrame(0);
+    showFrame(1);
   });
 
 </script>
