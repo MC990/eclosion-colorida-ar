@@ -5,7 +5,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-  <title>Eclosión Colorida AR</title>
+  <title>Prueba Eclosión AR</title>
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -15,10 +15,35 @@
       margin: 0;
       overflow: hidden;
     }
+
+    #debug {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 99999;
+
+      background: rgba(0,0,0,.75);
+      color: white;
+
+      padding: 10px 16px;
+      border-radius: 12px;
+
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+
+      text-align: center;
+      pointer-events: none;
+    }
   </style>
 </head>
 
 <body>
+
+<div id="debug">
+  ESPERANDO TARGET...
+</div>
 
 <a-scene
   mindar-image="imageTargetSrc: ./targets.mind;"
@@ -28,6 +53,7 @@
   device-orientation-permission-ui="enabled: false">
 
   <a-assets>
+
     <img id="f01" src="./dream8/Dream%208_000001.png">
     <img id="f02" src="./dream8/Dream%208_000002.png">
     <img id="f03" src="./dream8/Dream%208_000003.png">
@@ -44,6 +70,7 @@
     <img id="f14" src="./dream8/Dream%208_000014.png">
     <img id="f15" src="./dream8/Dream%208_000015.png">
     <img id="f16" src="./dream8/Dream%208_000016.png">
+
   </a-assets>
 
   <a-camera
@@ -55,99 +82,17 @@
     id="target"
     mindar-image-target="targetIndex: 0">
 
-    <a-plane class="dogFrame" src="#f01"
-      position="0 0 0.01" width="1" height="1"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f02"
-      position="0 0 0.011" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f03"
-      position="0 0 0.012" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f04"
-      position="0 0 0.013" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f05"
-      position="0 0 0.014" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f06"
-      position="0 0 0.015" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f07"
-      position="0 0 0.016" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f08"
-      position="0 0 0.017" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f09"
-      position="0 0 0.018" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f10"
-      position="0 0 0.019" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f11"
-      position="0 0 0.020" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f12"
-      position="0 0 0.021" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f13"
-      position="0 0 0.022" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f14"
-      position="0 0 0.023" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f15"
-      position="0 0 0.024" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
-    </a-plane>
-
-    <a-plane class="dogFrame" src="#f16"
-      position="0 0 0.025" width="1" height="1"
-      visible="false"
-      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    <a-plane
+      id="dog"
+      position="0 0 0.01"
+      width="1"
+      height="1"
+      material="
+        src: #f01;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthWrite: false;">
     </a-plane>
 
   </a-entity>
@@ -155,42 +100,71 @@
 </a-scene>
 
 <script>
-  const target = document.querySelector("#target");
-  const frames = document.querySelectorAll(".dogFrame");
 
-  let current = 0;
+document.addEventListener("DOMContentLoaded", () => {
+
+  const target = document.querySelector("#target");
+  const dog = document.querySelector("#dog");
+  const debug = document.querySelector("#debug");
+
+  let frame = 1;
   let timer = null;
 
-  function showFrame(index) {
-    frames.forEach((frame, i) => {
-      frame.setAttribute("visible", i === index);
-    });
+  function showFrame() {
+
+    const number = String(frame).padStart(2, "0");
+
+    dog.setAttribute(
+      "material",
+      "src",
+      `#f${number}`
+    );
+
+    debug.innerHTML =
+      `ANIMACIÓN ACTIVA<br>FRAME ${frame}`;
+
+    frame++;
+
+    if (frame > 16) {
+      frame = 1;
+    }
   }
 
-  function startAnimation() {
-    if (timer) return;
 
-    current = 0;
-    showFrame(current);
+  target.addEventListener("targetFound", () => {
+
+    debug.innerHTML =
+      "TARGET ENCONTRADO<br>INICIANDO...";
+
+    if (timer) {
+      clearInterval(timer);
+    }
+
+    frame = 1;
+
+    showFrame();
 
     timer = setInterval(() => {
-      current = (current + 1) % frames.length;
-      showFrame(current);
+      showFrame();
     }, 500);
-  }
 
-  function stopAnimation() {
+  });
+
+
+  target.addEventListener("targetLost", () => {
+
+    debug.innerHTML =
+      "TARGET PERDIDO";
+
     if (timer) {
       clearInterval(timer);
       timer = null;
     }
 
-    current = 0;
-    showFrame(0);
-  }
+  });
 
-  target.addEventListener("targetFound", startAnimation);
-  target.addEventListener("targetLost", stopAnimation);
+});
+
 </script>
 
 </body>
