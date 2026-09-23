@@ -2,11 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no"
-  >
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
 
   <title>Eclosión Colorida AR</title>
 
@@ -31,24 +28,22 @@
   device-orientation-permission-ui="enabled: false">
 
   <a-assets>
-
-    <img id="frame1"  src="./dream8/Dream%208_000001.png">
-    <img id="frame2"  src="./dream8/Dream%208_000002.png">
-    <img id="frame3"  src="./dream8/Dream%208_000003.png">
-    <img id="frame4"  src="./dream8/Dream%208_000004.png">
-    <img id="frame5"  src="./dream8/Dream%208_000005.png">
-    <img id="frame6"  src="./dream8/Dream%208_000006.png">
-    <img id="frame7"  src="./dream8/Dream%208_000007.png">
-    <img id="frame8"  src="./dream8/Dream%208_000008.png">
-    <img id="frame9"  src="./dream8/Dream%208_000009.png">
-    <img id="frame10" src="./dream8/Dream%208_000010.png">
-    <img id="frame11" src="./dream8/Dream%208_000011.png">
-    <img id="frame12" src="./dream8/Dream%208_000012.png">
-    <img id="frame13" src="./dream8/Dream%208_000013.png">
-    <img id="frame14" src="./dream8/Dream%208_000014.png">
-    <img id="frame15" src="./dream8/Dream%208_000015.png">
-    <img id="frame16" src="./dream8/Dream%208_000016.png">
-
+    <img id="f01" src="./dream8/Dream%208_000001.png">
+    <img id="f02" src="./dream8/Dream%208_000002.png">
+    <img id="f03" src="./dream8/Dream%208_000003.png">
+    <img id="f04" src="./dream8/Dream%208_000004.png">
+    <img id="f05" src="./dream8/Dream%208_000005.png">
+    <img id="f06" src="./dream8/Dream%208_000006.png">
+    <img id="f07" src="./dream8/Dream%208_000007.png">
+    <img id="f08" src="./dream8/Dream%208_000008.png">
+    <img id="f09" src="./dream8/Dream%208_000009.png">
+    <img id="f10" src="./dream8/Dream%208_000010.png">
+    <img id="f11" src="./dream8/Dream%208_000011.png">
+    <img id="f12" src="./dream8/Dream%208_000012.png">
+    <img id="f13" src="./dream8/Dream%208_000013.png">
+    <img id="f14" src="./dream8/Dream%208_000014.png">
+    <img id="f15" src="./dream8/Dream%208_000015.png">
+    <img id="f16" src="./dream8/Dream%208_000016.png">
   </a-assets>
 
   <a-camera
@@ -60,18 +55,99 @@
     id="target"
     mindar-image-target="targetIndex: 0">
 
-    <a-plane
-      id="dog"
-      position="0 0 0.01"
-      width="1"
-      height="1"
-      material="
-        src: #frame1;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthWrite: false;
-        side: double;">
+    <a-plane class="dogFrame" src="#f01"
+      position="0 0 0.01" width="1" height="1"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f02"
+      position="0 0 0.011" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f03"
+      position="0 0 0.012" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f04"
+      position="0 0 0.013" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f05"
+      position="0 0 0.014" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f06"
+      position="0 0 0.015" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f07"
+      position="0 0 0.016" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f08"
+      position="0 0 0.017" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f09"
+      position="0 0 0.018" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f10"
+      position="0 0 0.019" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f11"
+      position="0 0 0.020" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f12"
+      position="0 0 0.021" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f13"
+      position="0 0 0.022" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f14"
+      position="0 0 0.023" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f15"
+      position="0 0 0.024" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
+    </a-plane>
+
+    <a-plane class="dogFrame" src="#f16"
+      position="0 0 0.025" width="1" height="1"
+      visible="false"
+      material="shader: flat; transparent: true; alphaTest: 0.01; depthWrite: false">
     </a-plane>
 
   </a-entity>
@@ -79,104 +155,42 @@
 </a-scene>
 
 <script>
-
-  const FPS = 2;
-  const FRAME_COUNT = 16;
-
   const target = document.querySelector("#target");
-  const dog = document.querySelector("#dog");
+  const frames = document.querySelectorAll(".dogFrame");
 
-  const textures = [];
-
-  let currentFrame = 0;
+  let current = 0;
   let timer = null;
 
-  // Crear las 16 texturas una sola vez
-  window.addEventListener("load", () => {
-
-    const loader = new THREE.TextureLoader();
-
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-
-      const number = String(i).padStart(6, "0");
-
-      const texture = loader.load(
-        `./dream8/Dream%208_${number}.png`
-      );
-
-      texture.colorSpace = THREE.SRGBColorSpace;
-      texture.flipY = true;
-
-      textures.push(texture);
-    }
-
-  });
-
-
   function showFrame(index) {
-
-    const mesh = dog.getObject3D("mesh");
-
-    if (!mesh || !mesh.material || !textures[index]) {
-      return;
-    }
-
-    mesh.material.map = textures[index];
-
-    mesh.material.transparent = true;
-    mesh.material.alphaTest = 0.01;
-    mesh.material.depthWrite = false;
-
-    mesh.material.needsUpdate = true;
+    frames.forEach((frame, i) => {
+      frame.setAttribute("visible", i === index);
+    });
   }
-
 
   function startAnimation() {
-
     if (timer) return;
 
-    currentFrame = 0;
-
-    showFrame(currentFrame);
+    current = 0;
+    showFrame(current);
 
     timer = setInterval(() => {
-
-      currentFrame =
-        (currentFrame + 1) % FRAME_COUNT;
-
-      showFrame(currentFrame);
-
-    }, 1000 / FPS);
-
+      current = (current + 1) % frames.length;
+      showFrame(current);
+    }, 500);
   }
 
-
   function stopAnimation() {
-
     if (timer) {
-
       clearInterval(timer);
-
       timer = null;
     }
 
-    currentFrame = 0;
-
+    current = 0;
     showFrame(0);
   }
 
-
-  target.addEventListener(
-    "targetFound",
-    startAnimation
-  );
-
-
-  target.addEventListener(
-    "targetLost",
-    stopAnimation
-  );
-
+  target.addEventListener("targetFound", startAnimation);
+  target.addEventListener("targetLost", stopAnimation);
 </script>
 
 </body>
