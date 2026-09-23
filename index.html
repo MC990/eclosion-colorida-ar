@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no"
+  >
 
   <title>Eclosión Colorida AR</title>
 
@@ -29,7 +31,24 @@
   device-orientation-permission-ui="enabled: false">
 
   <a-assets>
-    <img id="dogFrame" crossorigin="anonymous">
+
+    <img id="frame1"  src="./dream8/Dream%208_000001.png">
+    <img id="frame2"  src="./dream8/Dream%208_000002.png">
+    <img id="frame3"  src="./dream8/Dream%208_000003.png">
+    <img id="frame4"  src="./dream8/Dream%208_000004.png">
+    <img id="frame5"  src="./dream8/Dream%208_000005.png">
+    <img id="frame6"  src="./dream8/Dream%208_000006.png">
+    <img id="frame7"  src="./dream8/Dream%208_000007.png">
+    <img id="frame8"  src="./dream8/Dream%208_000008.png">
+    <img id="frame9"  src="./dream8/Dream%208_000009.png">
+    <img id="frame10" src="./dream8/Dream%208_000010.png">
+    <img id="frame11" src="./dream8/Dream%208_000011.png">
+    <img id="frame12" src="./dream8/Dream%208_000012.png">
+    <img id="frame13" src="./dream8/Dream%208_000013.png">
+    <img id="frame14" src="./dream8/Dream%208_000014.png">
+    <img id="frame15" src="./dream8/Dream%208_000015.png">
+    <img id="frame16" src="./dream8/Dream%208_000016.png">
+
   </a-assets>
 
   <a-camera
@@ -47,6 +66,7 @@
       width="1"
       height="1"
       material="
+        src: #frame1;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -59,85 +79,103 @@
 </a-scene>
 
 <script>
-  const FRAME_COUNT = 16;
+
   const FPS = 2;
+  const FRAME_COUNT = 16;
 
   const target = document.querySelector("#target");
   const dog = document.querySelector("#dog");
-  const image = document.querySelector("#dogFrame");
 
-  let currentFrame = 1;
+  const textures = [];
+
+  let currentFrame = 0;
   let timer = null;
 
-  function frameURL(frame) {
-    const number = String(frame).padStart(6, "0");
+  // Crear las 16 texturas una sola vez
+  window.addEventListener("load", () => {
 
-    return `./dream8/Dream%208_${number}.png`;
+    const loader = new THREE.TextureLoader();
+
+    for (let i = 1; i <= FRAME_COUNT; i++) {
+
+      const number = String(i).padStart(6, "0");
+
+      const texture = loader.load(
+        `./dream8/Dream%208_${number}.png`
+      );
+
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.flipY = true;
+
+      textures.push(texture);
+    }
+
+  });
+
+
+  function showFrame(index) {
+
+    const mesh = dog.getObject3D("mesh");
+
+    if (!mesh || !mesh.material || !textures[index]) {
+      return;
+    }
+
+    mesh.material.map = textures[index];
+
+    mesh.material.transparent = true;
+    mesh.material.alphaTest = 0.01;
+    mesh.material.depthWrite = false;
+
+    mesh.material.needsUpdate = true;
   }
 
-  function showFrame(frame) {
-
-    image.onload = () => {
-
-      dog.setAttribute("material", {
-        src: image,
-        shader: "flat",
-        transparent: true,
-        alphaTest: 0.01,
-        depthWrite: false,
-        side: "double"
-      });
-
-      const mesh = dog.getObject3D("mesh");
-
-      if (mesh && mesh.material) {
-        mesh.material.transparent = true;
-        mesh.material.alphaTest = 0.01;
-        mesh.material.depthWrite = false;
-        mesh.material.needsUpdate = true;
-      }
-    };
-
-    image.src = frameURL(frame);
-  }
 
   function startAnimation() {
 
     if (timer) return;
 
-    currentFrame = 1;
+    currentFrame = 0;
+
     showFrame(currentFrame);
 
     timer = setInterval(() => {
 
-      currentFrame++;
-
-      if (currentFrame > FRAME_COUNT) {
-        currentFrame = 1;
-      }
+      currentFrame =
+        (currentFrame + 1) % FRAME_COUNT;
 
       showFrame(currentFrame);
 
     }, 1000 / FPS);
+
   }
+
 
   function stopAnimation() {
 
     if (timer) {
+
       clearInterval(timer);
+
       timer = null;
     }
 
-    currentFrame = 1;
-    showFrame(1);
+    currentFrame = 0;
+
+    showFrame(0);
   }
 
-  target.addEventListener("targetFound", startAnimation);
-  target.addEventListener("targetLost", stopAnimation);
 
-  window.addEventListener("load", () => {
-    showFrame(1);
-  });
+  target.addEventListener(
+    "targetFound",
+    startAnimation
+  );
+
+
+  target.addEventListener(
+    "targetLost",
+    stopAnimation
+  );
 
 </script>
 
