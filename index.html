@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, user-scalable=no"
-  >
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
 
   <title>Eclosión Colorida AR</title>
 
@@ -23,61 +21,128 @@
 
 <body>
 
-  <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights; alpha: true;"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false"
-  >
+<a-scene
+  mindar-image="imageTargetSrc: ./targets.mind;"
+  color-space="sRGB"
+  renderer="colorManagement: true, physicallyCorrectLights; alpha: true;"
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: false">
 
-    <a-assets>
-      <video
-        id="dogVideo"
-        src="./Dream%208_1.mov"
-        loop
-        muted
-        playsinline
-        webkit-playsinline
-        crossorigin="anonymous">
-      </video>
-    </a-assets>
+  <a-assets id="assets"></a-assets>
 
-    <a-camera
-      position="0 0 0"
-      look-controls="enabled: false">
-    </a-camera>
+  <a-camera
+    position="0 0 0"
+    look-controls="enabled: false">
+  </a-camera>
 
-    <a-entity
-      id="target"
-      mindar-image-target="targetIndex: 0"
-    >
+  <a-entity
+    id="target"
+    mindar-image-target="targetIndex: 0">
 
-      <a-video
-        src="#dogVideo"
-        position="0 0 0.01"
-        width="1"
-        height="1"
-        material="transparent: true; alphaTest: 0.01">
-      </a-video>
+    <a-plane
+      id="dogAnimation"
+      position="0 0 0.01"
+      width="1"
+      height="1"
+      material="
+        transparent: true;
+        alphaTest: 0.01;
+        side: double;
+        shader: flat;">
+    </a-plane>
 
-    </a-entity>
+  </a-entity>
 
-  </a-scene>
+</a-scene>
 
-  <script>
-    const target = document.querySelector("#target");
-    const dogVideo = document.querySelector("#dogVideo");
+<script>
+  const FRAME_COUNT = 16;
+  const FPS = 2;
 
-    target.addEventListener("targetFound", () => {
-      dogVideo.play();
-    });
+  const target = document.querySelector("#target");
+  const dog = document.querySelector("#dogAnimation");
+  const assets = document.querySelector("#assets");
 
-    target.addEventListener("targetLost", () => {
-      dogVideo.pause();
-      dogVideo.currentTime = 0;
-    });
-  </script>
+  const frames = [];
+
+  // Cargar los 16 PNG
+  for (let i = 1; i <= FRAME_COUNT; i++) {
+
+    const number = String(i).padStart(6, "0");
+
+    const img = document.createElement("img");
+
+    img.id = `dogFrame${i}`;
+
+    img.src =
+      `./dream8/Dream%208_${number}.png`;
+
+    img.crossOrigin = "anonymous";
+
+    assets.appendChild(img);
+
+    frames.push(img);
+  }
+
+  let currentFrame = 0;
+  let animationTimer = null;
+
+  function showFrame(index) {
+
+    dog.setAttribute(
+      "material",
+      "src",
+      `#dogFrame${index + 1}`
+    );
+
+  }
+
+  function startAnimation() {
+
+    if (animationTimer) return;
+
+    currentFrame = 0;
+
+    showFrame(currentFrame);
+
+    animationTimer = setInterval(() => {
+
+      currentFrame =
+        (currentFrame + 1) % FRAME_COUNT;
+
+      showFrame(currentFrame);
+
+    }, 1000 / FPS);
+
+  }
+
+  function stopAnimation() {
+
+    if (animationTimer) {
+      clearInterval(animationTimer);
+      animationTimer = null;
+    }
+
+    currentFrame = 0;
+    showFrame(0);
+
+  }
+
+  target.addEventListener(
+    "targetFound",
+    startAnimation
+  );
+
+  target.addEventListener(
+    "targetLost",
+    stopAnimation
+  );
+
+  window.addEventListener("load", () => {
+    showFrame(0);
+  });
+
+</script>
 
 </body>
 </html>
