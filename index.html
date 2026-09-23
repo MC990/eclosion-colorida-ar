@@ -63,7 +63,9 @@
   <a-assets>
 
 
-    <!-- CARLITOS -->
+    <!-- ========================= -->
+    <!-- CARLITOS - 16 FRAMES -->
+    <!-- ========================= -->
 
     <img id="c01" src="./dream8/Dream%208_000001.png">
     <img id="c02" src="./dream8/Dream%208_000002.png">
@@ -83,7 +85,9 @@
     <img id="c16" src="./dream8/Dream%208_000016.png">
 
 
-    <!-- MOLLY -->
+    <!-- ========================= -->
+    <!-- MOLLY - 4 FRAMES -->
+    <!-- ========================= -->
 
     <img id="m01" src="./molly/Dream%2010_000001.png">
     <img id="m02" src="./molly/Dream%2010_000002.png">
@@ -91,7 +95,9 @@
     <img id="m04" src="./molly/Dream%2010_000004.png">
 
 
-    <!-- NOAH -->
+    <!-- ========================= -->
+    <!-- NOAH - 4 FRAMES -->
+    <!-- ========================= -->
 
     <img id="n01" src="./noah/Dream%2011_000001.png">
     <img id="n02" src="./noah/Dream%2011_000002.png">
@@ -99,12 +105,15 @@
     <img id="n04" src="./noah/Dream%2011_000004.png">
 
 
-    <!-- BIMBA -->
+    <!-- ========================= -->
+    <!-- BIMBA - 4 FRAMES -->
+    <!-- ========================= -->
 
     <img id="b01" src="./bimba/Dream%209_000001%20(1).png">
     <img id="b02" src="./bimba/Dream%209_000002%20(1).png">
     <img id="b03" src="./bimba/Dream%209_000003%20(1).png">
     <img id="b04" src="./bimba/Dream%209_000004%20(1).png">
+
 
   </a-assets>
 
@@ -128,13 +137,18 @@
     mindar-image-target="targetIndex: 0">
 
 
-    <!-- MOLLY - ARRIBA IZQUIERDA -->
+    <!-- ================================================== -->
+    <!-- MOLLY -->
+    <!-- SILLÓN - IZQUIERDA -->
+    <!-- ================================================== -->
 
     <a-plane
       id="molly"
-      position="-0.27 0.27 0.02"
-      width="0.40"
-      height="0.40"
+
+      position="-0.17 -0.10 0.02"
+
+      width="0.32"
+      height="0.32"
 
       material="
         src: #m01;
@@ -145,16 +159,21 @@
     </a-plane>
 
 
-    <!-- NOAH - ARRIBA DERECHA -->
+    <!-- ================================================== -->
+    <!-- BIMBA -->
+    <!-- SILLÓN - DERECHA -->
+    <!-- ================================================== -->
 
     <a-plane
-      id="noah"
-      position="0.27 0.27 0.02"
-      width="0.40"
-      height="0.40"
+      id="bimba"
+
+      position="0.16 -0.10 0.02"
+
+      width="0.34"
+      height="0.34"
 
       material="
-        src: #n01;
+        src: #b01;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -162,13 +181,18 @@
     </a-plane>
 
 
-    <!-- CARLITOS - ABAJO IZQUIERDA -->
+    <!-- ================================================== -->
+    <!-- CARLITOS -->
+    <!-- PISO - IZQUIERDA -->
+    <!-- ================================================== -->
 
     <a-plane
       id="carlitos"
-      position="-0.27 -0.27 0.02"
-      width="0.40"
-      height="0.40"
+
+      position="-0.29 -0.34 0.02"
+
+      width="0.35"
+      height="0.35"
 
       material="
         src: #c01;
@@ -179,16 +203,21 @@
     </a-plane>
 
 
-    <!-- BIMBA - ABAJO DERECHA -->
+    <!-- ================================================== -->
+    <!-- NOAH -->
+    <!-- PISO - DERECHA -->
+    <!-- ================================================== -->
 
     <a-plane
-      id="bimba"
-      position="0.27 -0.27 0.02"
-      width="0.40"
-      height="0.40"
+      id="noah"
+
+      position="0.29 -0.34 0.02"
+
+      width="0.34"
+      height="0.34"
 
       material="
-        src: #b01;
+        src: #n01;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -238,10 +267,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function animar() {
 
-    cambiarFrame(carlitos, "c", carlitosFrame);
-    cambiarFrame(molly, "m", mollyFrame);
-    cambiarFrame(noah, "n", noahFrame);
-    cambiarFrame(bimba, "b", bimbaFrame);
+    cambiarFrame(
+      carlitos,
+      "c",
+      carlitosFrame
+    );
+
+    cambiarFrame(
+      molly,
+      "m",
+      mollyFrame
+    );
+
+    cambiarFrame(
+      noah,
+      "n",
+      noahFrame
+    );
+
+    cambiarFrame(
+      bimba,
+      "b",
+      bimbaFrame
+    );
 
 
     carlitosFrame++;
@@ -276,7 +324,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   target.addEventListener("targetFound", () => {
 
-    debug.innerHTML = "TARGET ENCONTRADO 🐶🐶🐶🐶";
+    debug.innerHTML =
+      "TARGET ENCONTRADO 🐶🐶🐶🐶";
+
 
     if (timer) {
       clearInterval(timer);
@@ -303,11 +353,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   target.addEventListener("targetLost", () => {
 
-    debug.innerHTML = "TARGET PERDIDO";
+    debug.innerHTML =
+      "TARGET PERDIDO";
+
 
     if (timer) {
 
       clearInterval(timer);
+
       timer = null;
 
     }
