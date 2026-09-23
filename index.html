@@ -40,7 +40,6 @@
   </style>
 </head>
 
-
 <body>
 
 <div id="debug">
@@ -61,7 +60,6 @@
   <!-- ========================= -->
 
   <a-assets>
-
 
     <!-- CARLITOS -->
 
@@ -128,23 +126,11 @@
     mindar-image-target="targetIndex: 0">
 
 
-    <!--
-      POSICIONES DE PRUEBA
-
-      MOLLY       NOAH
-
-      CARLITOS    BIMBA
-
-      Después los acomodaremos
-      correctamente.
-    -->
-
-
-    <!-- MOLLY - arriba izquierda -->
+    <!-- MOLLY -->
 
     <a-plane
       id="molly"
-      position="-0.27 0.27 0.02"
+      position="-0.18 -0.08 0.02"
       width="0.40"
       height="0.40"
 
@@ -157,11 +143,11 @@
     </a-plane>
 
 
-    <!-- NOAH - arriba derecha -->
+    <!-- NOAH -->
 
     <a-plane
       id="noah"
-      position="0.27 0.27 0.02"
+      position="0.28 -0.30 0.02"
       width="0.40"
       height="0.40"
 
@@ -174,11 +160,11 @@
     </a-plane>
 
 
-    <!-- CARLITOS - abajo izquierda -->
+    <!-- CARLITOS -->
 
     <a-plane
       id="carlitos"
-      position="-0.27 -0.27 0.02"
+      position="-0.28 -0.30 0.02"
       width="0.40"
       height="0.40"
 
@@ -191,11 +177,11 @@
     </a-plane>
 
 
-    <!-- BIMBA - abajo derecha -->
+    <!-- BIMBA -->
 
     <a-plane
       id="bimba"
-      position="0.27 -0.27 0.02"
+      position="0.14 -0.08 0.02"
       width="0.40"
       height="0.40"
 
@@ -211,7 +197,6 @@
   </a-entity>
 
 </a-scene>
-
 
 
 <script>
@@ -252,11 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function animar() {
 
     cambiarFrame(carlitos, "c", carlitosFrame);
-
     cambiarFrame(molly, "m", mollyFrame);
-
     cambiarFrame(noah, "n", noahFrame);
-
     cambiarFrame(bimba, "b", bimbaFrame);
 
 
