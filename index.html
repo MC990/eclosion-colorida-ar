@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
   <meta charset="UTF-8">
@@ -12,139 +11,37 @@
 
   <title>Eclosión Colorida AR</title>
 
-
-  <!-- ================================================= -->
-  <!-- A-FRAME + MINDAR -->
-  <!-- ================================================= -->
-
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
 
-  <!-- ================================================= -->
-  <!-- RECORTE DEL SILLÓN -->
-  <!-- ================================================= -->
-
-  <script>
-
-    AFRAME.registerComponent("crop-sillon", {
-
-      init: function () {
-
-        this.aplicado = false;
-
-      },
-
-
-      tick: function () {
-
-        if (this.aplicado) return;
-
-
-        const mesh = this.el.getObject3D("mesh");
-
-        if (!mesh) return;
-
-
-        const material = mesh.material;
-
-        if (!material || !material.map) return;
-
-
-        const texture = material.map;
-
-
-        /*
-          PNG ORIGINAL:
-          1640 x 2360
-
-          ÁREA REAL DEL SILLÓN:
-          x = 115 → 1497
-          y = 1000 → 1534
-
-          El código de abajo hace que A-Frame
-          utilice solamente esa región.
-        */
-
-
-        texture.wrapS = THREE.ClampToEdgeWrapping;
-        texture.wrapT = THREE.ClampToEdgeWrapping;
-
-
-        texture.repeat.set(
-
-          1382 / 1640,
-
-          534 / 2360
-
-        );
-
-
-        texture.offset.set(
-
-          115 / 1640,
-
-          826 / 2360
-
-        );
-
-
-        texture.needsUpdate = true;
-
-
-        this.aplicado = true;
-
-      }
-
-    });
-
-  </script>
-
-
   <style>
 
     body {
-
       margin: 0;
       overflow: hidden;
-
     }
 
-
     #debug {
-
       position: fixed;
-
       top: 15px;
       left: 50%;
-
       transform: translateX(-50%);
-
       z-index: 99999;
 
-
-      background: rgba(0, 0, 0, .72);
-
+      background: rgba(0,0,0,.72);
       color: white;
 
-
       padding: 8px 14px;
-
       border-radius: 10px;
 
-
       font-family: Arial, sans-serif;
-
       font-size: 13px;
-
       font-weight: bold;
-
       text-align: center;
 
-
       pointer-events: none;
-
     }
 
   </style>
@@ -156,11 +53,8 @@
 
 
 <div id="debug">
-
   ESPERANDO TARGET...
-
 </div>
-
 
 
 <a-scene
@@ -187,15 +81,12 @@
 >
 
 
-  <!-- ================================================= -->
-  <!-- ASSETS -->
-  <!-- ================================================= -->
-
-
   <a-assets>
 
 
+    <!-- ================================================= -->
     <!-- ESCENA -->
+    <!-- ================================================= -->
 
 
     <img
@@ -222,9 +113,11 @@
     >
 
 
+    <!-- SILLÓN NUEVO RECORTADO -->
+
     <img
       id="sillonAsset"
-      src="./escena/Sillon.png"
+      src="./escena/Sillon-recortado.png"
     >
 
 
@@ -349,13 +242,8 @@
 
 
   <a-camera
-
     position="0 0 0"
-
-    look-controls="
-      enabled: false
-    "
-
+    look-controls="enabled: false"
   ></a-camera>
 
 
@@ -366,13 +254,8 @@
 
 
   <a-entity
-
     id="target"
-
-    mindar-image-target="
-      targetIndex: 0
-    "
-
+    mindar-image-target="targetIndex: 0"
   >
 
 
@@ -386,14 +269,9 @@
 
       id="cielo"
 
-      position="
-        0
-        0.08
-        0.001
-      "
+      position="0 0.08 0.001"
 
       width="0.98"
-
       height="1.46"
 
       material="
@@ -408,8 +286,7 @@
 
 
     <!-- ================================================= -->
-    <!-- 2 · PASTO BASE -->
-    <!-- AHORA MÁS ALTO PARA QUE NO ASOME CIELO ABAJO -->
+    <!-- 2 · PASTO INTERIOR -->
     <!-- ================================================= -->
 
 
@@ -417,14 +294,9 @@
 
       id="pastoAtras"
 
-      position="
-        0
-        -0.43
-        0.008
-      "
+      position="0 -0.43 0.008"
 
       width="1.08"
-
       height="0.48"
 
       material="
@@ -439,39 +311,7 @@
 
 
     <!-- ================================================= -->
-    <!-- 3 · EXTENSIÓN VERDE -->
-    <!-- CUBRE LOS TRIÁNGULOS AZULES -->
-    <!-- ================================================= -->
-
-
-    <a-plane
-
-      id="unionJardin"
-
-      position="
-        0
-        -0.565
-        0.011
-      "
-
-      width="1.26"
-
-      height="0.30"
-
-      material="
-        src: #pastoAtrasAsset;
-        shader: flat;
-        transparent: false;
-        depthTest: false;
-        depthWrite: false;
-      "
-
-    ></a-plane>
-
-
-
-    <!-- ================================================= -->
-    <!-- 4 · CORTINAS -->
+    <!-- 3 · CORTINAS -->
     <!-- ================================================= -->
 
 
@@ -479,14 +319,9 @@
 
       id="cortinaIzquierda"
 
-      position="
-        -0.46
-        0.06
-        0.016
-      "
+      position="-0.46 0.06 0.016"
 
       width="0.19"
-
       height="1.02"
 
       material="
@@ -501,19 +336,13 @@
     ></a-plane>
 
 
-
     <a-plane
 
       id="cortinaDerecha"
 
-      position="
-        0.46
-        0.06
-        0.016
-      "
+      position="0.46 0.06 0.016"
 
       width="0.19"
-
       height="1.02"
 
       material="
@@ -530,8 +359,8 @@
 
 
     <!-- ================================================= -->
-    <!-- 5 · ARBUSTOS -->
-    <!-- AHORA DETRÁS DEL SILLÓN -->
+    <!-- 4 · ARBUSTOS -->
+    <!-- DETRÁS DEL SILLÓN -->
     <!-- ================================================= -->
 
 
@@ -539,14 +368,9 @@
 
       id="arbustos"
 
-      position="
-        0
-        -0.055
-        0.024
-      "
+      position="0 -0.035 0.022"
 
       width="0.88"
-
       height="0.295"
 
       material="
@@ -563,7 +387,7 @@
 
 
     <!-- ================================================= -->
-    <!-- 6 · TÍTULO -->
+    <!-- 5 · TÍTULO -->
     <!-- ================================================= -->
 
 
@@ -571,14 +395,9 @@
 
       id="titulo"
 
-      position="
-        0
-        0.31
-        0.030
-      "
+      position="0 0.31 0.030"
 
       width="0.53"
-
       height="0.265"
 
       material="
@@ -595,10 +414,8 @@
 
 
     <!-- ================================================= -->
-    <!-- 7 · SILLÓN -->
-    <!-- -->
-    <!-- AHORA LA TEXTURA ESTÁ RECORTADA -->
-    <!-- A LA REGIÓN REAL DEL SOFÁ -->
+    <!-- 6 · SILLÓN REAL RECORTADO -->
+    <!-- AHORA EL PLANO = EL SILLÓN -->
     <!-- ================================================= -->
 
 
@@ -606,23 +423,16 @@
 
       id="sillon"
 
-      crop-sillon
+      position="0 -0.155 0.050"
 
-      position="
-        0
-        -0.145
-        0.045
-      "
-
-      width="1.03"
-
-      height="0.398"
+      width="0.94"
+      height="0.373"
 
       material="
         src: #sillonAsset;
         shader: flat;
         transparent: true;
-        alphaTest: 0.005;
+        alphaTest: 0.01;
         depthTest: false;
         depthWrite: false;
       "
@@ -632,7 +442,7 @@
 
 
     <!-- ================================================= -->
-    <!-- 8 · MARCO VEGETAL -->
+    <!-- 7 · MARCO VEGETAL -->
     <!-- ================================================= -->
 
 
@@ -640,14 +450,9 @@
 
       id="ramasFrente"
 
-      position="
-        0
-        0.035
-        0.058
-      "
+      position="0 0.035 0.058"
 
       width="1.20"
-
       height="0.98"
 
       material="
@@ -664,10 +469,36 @@
 
 
     <!-- ================================================= -->
+    <!-- 8 · UNIÓN DE PASTOS -->
+    <!-- QUEDA DEBAJO DEL JARDÍN DELANTERO -->
+    <!-- ================================================= -->
+
+
+    <a-plane
+
+      id="unionJardin"
+
+      position="0 -0.525 0.062"
+
+      width="1.24"
+      height="0.23"
+
+      material="
+        src: #pastoJardinAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;
+      "
+
+    ></a-plane>
+
+
+
+    <!-- ================================================= -->
     <!-- 9 · JARDÍN DELANTERO -->
-    <!-- -->
-    <!-- CONSERVAMOS EL EFECTO QUE YA FUNCIONÓ -->
-    <!-- PERO LO ACERCAMOS AL PASTO INTERIOR -->
+    <!-- PROFUNDIDAD AR -->
     <!-- ================================================= -->
 
 
@@ -675,21 +506,12 @@
 
       id="pastoJardin"
 
-      position="
-        0
-        -0.515
-        0.070
-      "
+      position="0 -0.555 0.085"
 
-      width="1.24"
+      width="1.20"
+      height="0.46"
 
-      height="0.48"
-
-      rotation="
-        -12
-        0
-        0
-      "
+      rotation="-12 0 0"
 
       material="
         src: #pastoJardinAsset;
@@ -706,10 +528,8 @@
 
     <!-- ================================================= -->
     <!-- 10 · PERRITOS -->
-    <!-- -->
-    <!-- X / Y / TAMAÑOS CONSERVADOS -->
+    <!-- X / Y / TAMAÑOS APROBADOS -->
     <!-- ================================================= -->
-
 
 
     <!-- MOLLY -->
@@ -719,14 +539,9 @@
 
       id="molly"
 
-      position="
-        -0.17
-        -0.10
-        0.115
-      "
+      position="-0.17 -0.10 0.120"
 
       width="0.32"
-
       height="0.32"
 
       material="
@@ -749,14 +564,9 @@
 
       id="bimba"
 
-      position="
-        0.16
-        -0.10
-        0.115
-      "
+      position="0.16 -0.10 0.120"
 
       width="0.34"
-
       height="0.34"
 
       material="
@@ -779,14 +589,9 @@
 
       id="carlitos"
 
-      position="
-        -0.29
-        -0.34
-        0.140
-      "
+      position="-0.29 -0.34 0.145"
 
       width="0.35"
-
       height="0.35"
 
       material="
@@ -809,14 +614,9 @@
 
       id="noah"
 
-      position="
-        0.29
-        -0.34
-        0.140
-      "
+      position="0.29 -0.34 0.145"
 
       width="0.34"
-
       height="0.34"
 
       material="
@@ -837,18 +637,13 @@
     <!-- ================================================= -->
 
 
-
     <!-- IZQUIERDA -->
 
 
     <a-plane
-
-      position="-0.46 0.34 0.150"
-
+      position="-0.46 0.34 0.155"
       width="0.080"
-
       height="0.080"
-
       rotation="0 0 -14"
 
       material="
@@ -859,19 +654,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="-0.52 0.24 0.148"
-
+      position="-0.52 0.24 0.152"
       width="0.047"
-
       height="0.047"
-
       rotation="0 0 18"
 
       material="
@@ -882,19 +671,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="-0.45 0.13 0.152"
-
+      position="-0.45 0.13 0.158"
       width="0.095"
-
       height="0.095"
-
       rotation="0 0 -8"
 
       material="
@@ -905,19 +688,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="-0.52 -0.02 0.150"
-
+      position="-0.52 -0.02 0.154"
       width="0.052"
-
       height="0.052"
-
       rotation="0 0 20"
 
       material="
@@ -928,19 +705,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="-0.50 -0.21 0.155"
-
+      position="-0.50 -0.21 0.160"
       width="0.070"
-
       height="0.070"
-
       rotation="0 0 -18"
 
       material="
@@ -951,7 +722,6 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
@@ -960,13 +730,9 @@
 
 
     <a-plane
-
-      position="0.47 0.32 0.150"
-
+      position="0.47 0.32 0.155"
       width="0.080"
-
       height="0.080"
-
       rotation="0 0 13"
 
       material="
@@ -977,19 +743,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="0.52 0.20 0.148"
-
+      position="0.52 0.20 0.152"
       width="0.048"
-
       height="0.048"
-
       rotation="0 0 -16"
 
       material="
@@ -1000,19 +760,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="0.46 0.09 0.152"
-
+      position="0.46 0.09 0.158"
       width="0.095"
-
       height="0.095"
-
       rotation="0 0 9"
 
       material="
@@ -1023,19 +777,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="0.52 -0.06 0.150"
-
+      position="0.52 -0.06 0.154"
       width="0.052"
-
       height="0.052"
-
       rotation="0 0 -18"
 
       material="
@@ -1046,19 +794,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="0.50 -0.22 0.155"
-
+      position="0.50 -0.22 0.160"
       width="0.070"
-
       height="0.070"
-
       rotation="0 0 17"
 
       material="
@@ -1069,7 +811,6 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
@@ -1080,13 +821,9 @@
 
 
     <a-plane
-
-      position="-0.39 -0.57 0.175"
-
+      position="-0.39 -0.57 0.180"
       width="0.090"
-
       height="0.090"
-
       rotation="-10 0 -12"
 
       material="
@@ -1097,19 +834,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="-0.25 -0.62 0.185"
-
+      position="-0.25 -0.62 0.190"
       width="0.050"
-
       height="0.050"
-
       rotation="-12 0 18"
 
       material="
@@ -1120,19 +851,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="0.28 -0.62 0.185"
-
+      position="0.28 -0.62 0.190"
       width="0.050"
-
       height="0.050"
-
       rotation="-12 0 -15"
 
       material="
@@ -1143,19 +868,13 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <a-plane
-
-      position="0.42 -0.56 0.175"
-
+      position="0.42 -0.56 0.180"
       width="0.090"
-
       height="0.090"
-
       rotation="-10 0 12"
 
       material="
@@ -1166,7 +885,6 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
@@ -1178,13 +896,11 @@
 
 
 <!-- ================================================= -->
-<!-- ANIMACIÓN DE LOS CUATRO PERROS -->
-<!-- CONSERVADA -->
+<!-- ANIMACIONES -->
 <!-- ================================================= -->
 
 
 <script>
-
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1326,9 +1042,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       debug.innerHTML =
-
         "TARGET ENCONTRADO 🐶🐶🐶🐶";
-
 
 
       if (timer) {
@@ -1336,7 +1050,6 @@ document.addEventListener("DOMContentLoaded", () => {
         clearInterval(timer);
 
       }
-
 
 
       carlitosFrame = 1;
@@ -1348,9 +1061,7 @@ document.addEventListener("DOMContentLoaded", () => {
       bimbaFrame = 1;
 
 
-
       animar();
-
 
 
       timer = setInterval(
@@ -1379,9 +1090,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       debug.innerHTML =
-
         "TARGET PERDIDO";
-
 
 
       if (timer) {
@@ -1398,7 +1107,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
-
 
 </script>
 
