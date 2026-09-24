@@ -38,9 +38,7 @@
 
 <body>
 
-<div id="debug">
-  ESPERANDO TARGET...
-</div>
+<div id="debug">ESPERANDO TARGET...</div>
 
 <a-scene
   mindar-image="imageTargetSrc: ./targets.mind;"
@@ -53,17 +51,14 @@
 
     <!-- ESCENA -->
 
-    <img
-      id="cieloAsset"
-      src="./escena/Cielo.PNG">
+    <img id="cieloAsset"
+         src="./escena/Cielo.PNG">
 
-    <img
-      id="pastoAtrasAsset"
-      src="./escena/Pasto%20atr%C3%A1s.PNG">
+    <img id="pastoAtrasAsset"
+         src="./escena/Pasto%20atr%C3%A1s.PNG">
 
-    <img
-      id="pastoJardinAsset"
-      src="./escena/Pasto%20jard%C3%ADn.PNG">
+    <img id="pastoJardinAsset"
+         src="./escena/Pasto%20jard%C3%ADn.PNG">
 
 
     <!-- CARLITOS -->
@@ -123,7 +118,7 @@
     mindar-image-target="targetIndex: 0">
 
 
-    <!-- CIELO 🔒 -->
+    <!-- CIELO -->
 
     <a-plane
       id="cielo"
@@ -139,7 +134,7 @@
     </a-plane>
 
 
-    <!-- PASTO ATRÁS 🔒 -->
+    <!-- PASTO ATRÁS -->
 
     <a-plane
       id="pastoAtras"
@@ -152,6 +147,26 @@
         shader: flat;
         transparent: false;
         depthWrite: true;">
+    </a-plane>
+
+
+    <!-- ================================= -->
+    <!-- PASTO JARDÍN -->
+    <!-- MÁS ANCHO Y DETRÁS DE LOS PERROS -->
+    <!-- ================================= -->
+
+    <a-plane
+      id="pastoJardin"
+      position="0 -0.40 0.025"
+      width="1.35"
+      height="0.76"
+
+      material="
+        src: #pastoJardinAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthWrite: false;">
     </a-plane>
 
 
@@ -216,26 +231,6 @@
 
       material="
         src: #n01;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <!-- ================================= -->
-    <!-- PASTO JARDÍN — PRIMER PLANO -->
-    <!-- MÁS ANCHO + MÁS BAJO -->
-    <!-- ================================= -->
-
-    <a-plane
-      id="pastoJardin"
-      position="0 -0.53 0.045"
-      width="1.25"
-      height="0.30"
-
-      material="
-        src: #pastoJardinAsset;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -331,8 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   target.addEventListener("targetLost", () => {
 
-    debug.innerHTML =
-      "TARGET PERDIDO";
+    debug.innerHTML = "TARGET PERDIDO";
 
     if (timer) {
       clearInterval(timer);
