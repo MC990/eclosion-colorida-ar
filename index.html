@@ -171,7 +171,6 @@
 
       <!-- ================================================= -->
       <!-- 1. CIELO -->
-      <!-- FONDO ABSOLUTO -->
       <!-- ================================================= -->
 
       <a-plane
@@ -189,16 +188,18 @@
 
 
       <!-- ================================================= -->
-      <!-- 2. PASTO INTERIOR -->
-      <!-- SE QUEDA DENTRO DEL TARGET -->
-      <!-- NO DEBE CREAR EXTENSIONES RECTANGULARES -->
+      <!-- 2. JARDÍN INTERIOR -->
+      <!--
+        Más alto para continuar detrás del sillón.
+        Sigue contenido dentro del target.
+      -->
       <!-- ================================================= -->
 
       <a-plane
         id="pastoAtras"
-        position="0 -0.425 0.008"
+        position="0 -0.405 0.008"
         width="0.98"
-        height="0.50"
+        height="0.54"
         material="
           src: #pastoAtrasAsset;
           shader: flat;
@@ -211,20 +212,17 @@
       <!-- ================================================= -->
       <!-- 3. CORTINAS -->
       <!--
-        REGLAS:
-        - DETRÁS DE VEGETACIÓN
-        - DETRÁS DEL SILLÓN
-        - MÁS VISIBLES QUE EN V33
-        - ENTRAN DESDE ARRIBA
-        - NO TERMINAN COMO DOS RECTÁNGULOS AISLADOS
+        Más metidas.
+        Más largas.
+        Siempre detrás de la vegetación.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="cortinaIzquierda"
-        position="-0.365 0.105 0.014"
-        width="0.245"
-        height="1.08"
+        position="-0.345 0.075 0.014"
+        width="0.265"
+        height="1.12"
         material="
           src: #cortinaIzquierdaAsset;
           shader: flat;
@@ -238,9 +236,9 @@
 
       <a-plane
         id="cortinaDerecha"
-        position="0.365 0.105 0.014"
-        width="0.245"
-        height="1.08"
+        position="0.345 0.075 0.014"
+        width="0.265"
+        height="1.12"
         material="
           src: #cortinaDerechaAsset;
           shader: flat;
@@ -255,17 +253,17 @@
       <!-- ================================================= -->
       <!-- 4. ARBUSTOS -->
       <!--
-        FRANJA VEGETAL DETRÁS DEL RESPALDO.
-        MÁS PRESENTE QUE EN V33.
-        NUNCA SOBRE EL ASIENTO.
+        Más altos.
+        Más anchos.
+        Conectan ramas + sillón + jardín.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="arbustos"
-        position="0 0.025 0.024"
-        width="0.92"
-        height="0.307"
+        position="0 0.045 0.025"
+        width="0.94"
+        height="0.313"
         material="
           src: #arbustosAsset;
           shader: flat;
@@ -301,17 +299,18 @@
       <!-- ================================================= -->
       <!-- 6. RAMAS -->
       <!--
-        MARCO VEGETAL.
-        DETRÁS DEL SILLÓN.
-        SUBEN LIGERAMENTE PARA LIBERAR LA ZONA INFERIOR.
+        Se abren visualmente.
+        Suben.
+        La zona inferior queda más libre.
+        Siguen detrás del sillón.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="ramasFrente"
-        position="0 0.095 0.045"
-        width="1.13"
-        height="0.87"
+        position="0 0.115 0.045"
+        width="1.10"
+        height="0.84"
         material="
           src: #ramasAsset;
           shader: flat;
@@ -326,17 +325,14 @@
       <!-- ================================================= -->
       <!-- 7. SILLÓN -->
       <!--
-        BLOQUE CENTRAL.
-
-        REGLAS:
-        - RAMAS DETRÁS.
-        - CORTINAS DETRÁS.
-        - ARBUSTOS DETRÁS.
-        - PROPORCIÓN BLOQUEADA.
-        - PNG BLOQUEADO.
-        - NO DEFORMAR.
-        - NO AGRANDAR.
-        - MOLLY/BIMBA VAN SOBRE ÉL.
+        BLOQUEADO.
+        NO CAMBIO:
+        X
+        Y
+        Z
+        ANCHO
+        ALTO
+        PNG
       -->
       <!-- ================================================= -->
 
@@ -401,23 +397,19 @@
       <!-- ================================================= -->
       <!-- 10. JARDÍN DELANTERO -->
       <!--
-        UNA SOLA CAPA.
-        NO HAY unionJardin.
-
-        OBJETIVO:
-        - CONTINUIDAD CON PASTO TRASERO.
-        - BORDE SUPERIOR ESCONDIDO DETRÁS DE PERROS/SILLÓN.
-        - MENOS SENSACIÓN DE PESTAÑA RECTANGULAR.
-        - SIGUE SALIENDO HACIA CÁMARA.
+        Empieza más arriba para solaparse con jardín interior.
+        Menos inclinación brusca.
+        Sigue saliendo hacia cámara.
+        Una sola capa.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="pastoJardin"
-        position="0 -0.515 0.145"
-        width="1.14"
-        height="0.44"
-        rotation="-10 0 0"
+        position="0 -0.485 0.145"
+        width="1.12"
+        height="0.46"
+        rotation="-9 0 0"
         material="
           src: #pastoJardinAsset;
           shader: flat;
@@ -472,21 +464,21 @@
 
 
       <!-- ================================================= -->
-      <!-- 13. FLORES DEL MARCO -->
+      <!-- 13. FLORES -->
       <!--
-        REDUCIMOS CANTIDAD.
-        TODAS PEGADAS VISUALMENTE AL FOLLAJE.
-        NADA FLOTANDO CERCA DEL CENTRO.
+        MENOS FLORES.
+        SOLO DONDE HAY RAMAS.
+        NINGUNA CERCA DEL CENTRO.
       -->
       <!-- ================================================= -->
 
 
-      <!-- IZQUIERDA SUPERIOR -->
+      <!-- IZQUIERDA -->
 
       <a-plane
-        position="-0.425 0.285 0.180"
-        width="0.062"
-        height="0.062"
+        position="-0.405 0.285 0.180"
+        width="0.058"
+        height="0.058"
         rotation="0 0 -12"
         material="
           src: #florRosaClaroAsset;
@@ -499,12 +491,10 @@
       ></a-plane>
 
 
-      <!-- IZQUIERDA MEDIA -->
-
       <a-plane
-        position="-0.435 0.125 0.180"
-        width="0.060"
-        height="0.060"
+        position="-0.420 0.145 0.180"
+        width="0.054"
+        height="0.054"
         rotation="0 0 10"
         material="
           src: #florLilaAsset;
@@ -517,13 +507,11 @@
       ></a-plane>
 
 
-      <!-- IZQUIERDA BAJA -->
-
       <a-plane
-        position="-0.445 -0.045 0.180"
-        width="0.043"
-        height="0.043"
-        rotation="0 0 18"
+        position="-0.430 0.015 0.180"
+        width="0.038"
+        height="0.038"
+        rotation="0 0 17"
         material="
           src: #florAzulAsset;
           shader: flat;
@@ -535,12 +523,12 @@
       ></a-plane>
 
 
-      <!-- DERECHA SUPERIOR -->
+      <!-- DERECHA -->
 
       <a-plane
-        position="0.425 0.275 0.180"
-        width="0.062"
-        height="0.062"
+        position="0.405 0.275 0.180"
+        width="0.058"
+        height="0.058"
         rotation="0 0 12"
         material="
           src: #florRosaClaroAsset;
@@ -553,12 +541,10 @@
       ></a-plane>
 
 
-      <!-- DERECHA MEDIA -->
-
       <a-plane
-        position="0.435 0.115 0.180"
-        width="0.060"
-        height="0.060"
+        position="0.420 0.135 0.180"
+        width="0.054"
+        height="0.054"
         rotation="0 0 -10"
         material="
           src: #florLilaAsset;
@@ -571,13 +557,11 @@
       ></a-plane>
 
 
-      <!-- DERECHA BAJA -->
-
       <a-plane
-        position="0.445 -0.050 0.180"
-        width="0.043"
-        height="0.043"
-        rotation="0 0 -18"
+        position="0.430 0.010 0.180"
+        width="0.038"
+        height="0.038"
+        rotation="0 0 -17"
         material="
           src: #florRosaOscuroAsset;
           shader: flat;
@@ -596,7 +580,7 @@
 
   <!-- ===================================================== -->
   <!-- ANIMACIÓN -->
-  <!-- SISTEMA APROBADO / NO MODIFICAR -->
+  <!-- BLOQUEADA / MISMO SISTEMA QUE YA FUNCIONA -->
   <!-- ===================================================== -->
 
   <script>
