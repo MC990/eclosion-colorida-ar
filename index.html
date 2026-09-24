@@ -49,11 +49,6 @@
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false">
 
-
-  <!-- ========================= -->
-  <!-- ASSETS -->
-  <!-- ========================= -->
-
   <a-assets>
 
     <!-- ESCENA -->
@@ -117,28 +112,18 @@
   </a-assets>
 
 
-  <!-- ========================= -->
-  <!-- CAMERA -->
-  <!-- ========================= -->
-
   <a-camera
     position="0 0 0"
     look-controls="enabled: false">
   </a-camera>
 
 
-  <!-- ========================= -->
-  <!-- TARGET -->
-  <!-- ========================= -->
-
   <a-entity
     id="target"
     mindar-image-target="targetIndex: 0">
 
 
-    <!-- ========================= -->
     <!-- CIELO 🔒 -->
-    <!-- ========================= -->
 
     <a-plane
       id="cielo"
@@ -154,9 +139,7 @@
     </a-plane>
 
 
-    <!-- ========================= -->
     <!-- PASTO ATRÁS 🔒 -->
-    <!-- ========================= -->
 
     <a-plane
       id="pastoAtras"
@@ -172,9 +155,7 @@
     </a-plane>
 
 
-    <!-- ========================= -->
     <!-- MOLLY 🔒 -->
-    <!-- ========================= -->
 
     <a-plane
       id="molly"
@@ -191,9 +172,7 @@
     </a-plane>
 
 
-    <!-- ========================= -->
     <!-- BIMBA 🔒 -->
-    <!-- ========================= -->
 
     <a-plane
       id="bimba"
@@ -210,9 +189,7 @@
     </a-plane>
 
 
-    <!-- ========================= -->
     <!-- CARLITOS 🔒 -->
-    <!-- ========================= -->
 
     <a-plane
       id="carlitos"
@@ -229,9 +206,7 @@
     </a-plane>
 
 
-    <!-- ========================= -->
     <!-- NOAH 🔒 -->
-    <!-- ========================= -->
 
     <a-plane
       id="noah"
@@ -248,16 +223,16 @@
     </a-plane>
 
 
-    <!-- ========================= -->
-    <!-- PASTO JARDÍN -->
-    <!-- PRIMER PLANO -->
-    <!-- ========================= -->
+    <!-- ================================= -->
+    <!-- PASTO JARDÍN — PRIMER PLANO -->
+    <!-- MÁS ANCHO + MÁS BAJO -->
+    <!-- ================================= -->
 
     <a-plane
       id="pastoJardin"
-      position="0 -0.47 0.045"
-      width="1.00"
-      height="0.56"
+      position="0 -0.53 0.045"
+      width="1.25"
+      height="0.30"
 
       material="
         src: #pastoJardinAsset;
@@ -285,7 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const bimba = document.querySelector("#bimba");
 
   const debug = document.querySelector("#debug");
-
 
   let carlitosFrame = 1;
   let mollyFrame = 1;
@@ -315,29 +289,15 @@ document.addEventListener("DOMContentLoaded", () => {
     cambiarFrame(noah, "n", noahFrame);
     cambiarFrame(bimba, "b", bimbaFrame);
 
-
     carlitosFrame++;
     mollyFrame++;
     noahFrame++;
     bimbaFrame++;
 
-
-    if (carlitosFrame > 16) {
-      carlitosFrame = 1;
-    }
-
-    if (mollyFrame > 4) {
-      mollyFrame = 1;
-    }
-
-    if (noahFrame > 4) {
-      noahFrame = 1;
-    }
-
-    if (bimbaFrame > 4) {
-      bimbaFrame = 1;
-    }
-
+    if (carlitosFrame > 16) carlitosFrame = 1;
+    if (mollyFrame > 4) mollyFrame = 1;
+    if (noahFrame > 4) noahFrame = 1;
+    if (bimbaFrame > 4) bimbaFrame = 1;
 
     debug.innerHTML =
       `🐶 CARLITOS ${carlitosFrame}/16 · MOLLY ${mollyFrame}/4<br>
@@ -351,25 +311,19 @@ document.addEventListener("DOMContentLoaded", () => {
     debug.innerHTML =
       "TARGET ENCONTRADO 🐶🐶🐶🐶";
 
-
     if (timer) {
       clearInterval(timer);
     }
-
 
     carlitosFrame = 1;
     mollyFrame = 1;
     noahFrame = 1;
     bimbaFrame = 1;
 
-
     animar();
 
-
     timer = setInterval(() => {
-
       animar();
-
     }, 500);
 
   });
@@ -380,12 +334,9 @@ document.addEventListener("DOMContentLoaded", () => {
     debug.innerHTML =
       "TARGET PERDIDO";
 
-
     if (timer) {
-
       clearInterval(timer);
       timer = null;
-
     }
 
   });
