@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,12 +11,9 @@
   <title>Eclosión Colorida AR</title>
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
-
   <style>
-
     body {
       margin: 0;
       overflow: hidden;
@@ -43,14 +39,10 @@
 
       pointer-events: none;
     }
-
   </style>
-
 </head>
 
-
 <body>
-
 
 <div id="debug">
   ESPERANDO TARGET...
@@ -58,149 +50,78 @@
 
 
 <a-scene
-
-  mindar-image="
-    imageTargetSrc: ./targets.mind;
-  "
-
+  mindar-image="imageTargetSrc: ./targets.mind;"
   color-space="sRGB"
-
-  renderer="
-    colorManagement: true;
-    alpha: true;
-  "
-
-  vr-mode-ui="
-    enabled: false
-  "
-
-  device-orientation-permission-ui="
-    enabled: false
-  "
-
+  renderer="colorManagement: true; alpha: true;"
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: false"
 >
-
 
   <a-assets>
 
-
-    <!-- ================================================= -->
     <!-- ESCENA -->
-    <!-- ================================================= -->
+
+    <img id="cieloAsset"
+         src="./escena/Cielo.PNG">
+
+    <img id="pastoAtrasAsset"
+         src="./escena/Pasto%20atr%C3%A1s.PNG">
+
+    <img id="pastoJardinAsset"
+         src="./escena/Pasto%20jard%C3%ADn.PNG">
+
+    <img id="arbustosAsset"
+         src="./escena/Arbustos.PNG">
+
+    <img id="sillonAsset"
+         src="./escena/Sillon-recortado.png">
+
+    <img id="cortinaIzquierdaAsset"
+         src="./escena/cortina%20izquierda.png">
+
+    <img id="cortinaDerechaAsset"
+         src="./escena/cortina%20derecha.png">
+
+    <img id="tituloAsset"
+         src="./escena/Eclosi%C3%B3n%20Colorida.PNG">
+
+    <img id="ramasAsset"
+         src="./escena/Ramas%20frente.PNG">
+
+    <img id="florAzulAsset"
+         src="./escena/Flor%20azul.PNG">
+
+    <img id="florLilaAsset"
+         src="./escena/Flor%20lila.PNG">
+
+    <img id="florRosaClaroAsset"
+         src="./escena/Flor%20rosa%20claro.PNG">
+
+    <img id="florRosaOscuroAsset"
+         src="./escena/Flor%20rosa%20obscuro.PNG">
 
 
-    <img
-      id="cieloAsset"
-      src="./escena/Cielo.PNG"
-    >
-
-
-    <img
-      id="pastoAtrasAsset"
-      src="./escena/Pasto%20atr%C3%A1s.PNG"
-    >
-
-
-    <img
-      id="pastoJardinAsset"
-      src="./escena/Pasto%20jard%C3%ADn.PNG"
-    >
-
-
-    <img
-      id="arbustosAsset"
-      src="./escena/Arbustos.PNG"
-    >
-
-
-    <!-- SILLÓN NUEVO RECORTADO -->
-
-    <img
-      id="sillonAsset"
-      src="./escena/Sillon-recortado.png"
-    >
-
-
-    <img
-      id="cortinaIzquierdaAsset"
-      src="./escena/cortina%20izquierda.png"
-    >
-
-
-    <img
-      id="cortinaDerechaAsset"
-      src="./escena/cortina%20derecha.png"
-    >
-
-
-    <img
-      id="tituloAsset"
-      src="./escena/Eclosi%C3%B3n%20Colorida.PNG"
-    >
-
-
-    <img
-      id="ramasAsset"
-      src="./escena/Ramas%20frente.PNG"
-    >
-
-
-    <img
-      id="florAzulAsset"
-      src="./escena/Flor%20azul.PNG"
-    >
-
-
-    <img
-      id="florLilaAsset"
-      src="./escena/Flor%20lila.PNG"
-    >
-
-
-    <img
-      id="florRosaClaroAsset"
-      src="./escena/Flor%20rosa%20claro.PNG"
-    >
-
-
-    <img
-      id="florRosaOscuroAsset"
-      src="./escena/Flor%20rosa%20obscuro.PNG"
-    >
-
-
-
-    <!-- ================================================= -->
     <!-- CARLITOS -->
-    <!-- ================================================= -->
-
 
     <img id="c01" src="./dream8/Dream%208_000001.png">
     <img id="c02" src="./dream8/Dream%208_000002.png">
     <img id="c03" src="./dream8/Dream%208_000003.png">
     <img id="c04" src="./dream8/Dream%208_000004.png">
-
     <img id="c05" src="./dream8/Dream%208_000005.png">
     <img id="c06" src="./dream8/Dream%208_000006.png">
     <img id="c07" src="./dream8/Dream%208_000007.png">
     <img id="c08" src="./dream8/Dream%208_000008.png">
-
     <img id="c09" src="./dream8/Dream%208_000009.png">
     <img id="c10" src="./dream8/Dream%208_000010.png">
     <img id="c11" src="./dream8/Dream%208_000011.png">
     <img id="c12" src="./dream8/Dream%208_000012.png">
-
     <img id="c13" src="./dream8/Dream%208_000013.png">
     <img id="c14" src="./dream8/Dream%208_000014.png">
     <img id="c15" src="./dream8/Dream%208_000015.png">
     <img id="c16" src="./dream8/Dream%208_000016.png">
 
 
-
-    <!-- ================================================= -->
     <!-- MOLLY -->
-    <!-- ================================================= -->
-
 
     <img id="m01" src="./molly/Dream%2010_000001.png">
     <img id="m02" src="./molly/Dream%2010_000002.png">
@@ -208,11 +129,7 @@
     <img id="m04" src="./molly/Dream%2010_000004.png">
 
 
-
-    <!-- ================================================= -->
     <!-- NOAH -->
-    <!-- ================================================= -->
-
 
     <img id="n01" src="./noah/Dream%2011_000001.png">
     <img id="n02" src="./noah/Dream%2011_000002.png">
@@ -220,25 +137,14 @@
     <img id="n04" src="./noah/Dream%2011_000004.png">
 
 
-
-    <!-- ================================================= -->
     <!-- BIMBA -->
-    <!-- ================================================= -->
-
 
     <img id="b01" src="./bimba/Dream%209_000001%20(1).png">
     <img id="b02" src="./bimba/Dream%209_000002%20(1).png">
     <img id="b03" src="./bimba/Dream%209_000003%20(1).png">
     <img id="b04" src="./bimba/Dream%209_000004%20(1).png">
 
-
   </a-assets>
-
-
-
-  <!-- ================================================= -->
-  <!-- CÁMARA -->
-  <!-- ================================================= -->
 
 
   <a-camera
@@ -247,83 +153,58 @@
   ></a-camera>
 
 
-
-  <!-- ================================================= -->
-  <!-- TARGET -->
-  <!-- ================================================= -->
-
-
   <a-entity
     id="target"
     mindar-image-target="targetIndex: 0"
   >
 
 
-
     <!-- ================================================= -->
-    <!-- 1 · CIELO -->
+    <!-- 1. CIELO -->
     <!-- ================================================= -->
-
 
     <a-plane
-
       id="cielo"
-
       position="0 0.08 0.001"
-
       width="0.98"
       height="1.46"
-
       material="
         src: #cieloAsset;
         shader: flat;
         transparent: false;
         depthWrite: true;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 2 · PASTO INTERIOR -->
+    <!-- 2. PASTO INTERIOR -->
     <!-- ================================================= -->
-
 
     <a-plane
-
       id="pastoAtras"
-
       position="0 -0.43 0.008"
-
       width="1.08"
       height="0.48"
-
       material="
         src: #pastoAtrasAsset;
         shader: flat;
         transparent: false;
         depthWrite: true;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 3 · CORTINAS -->
+    <!-- 3. CORTINAS -->
+    <!-- MÁS HACIA ADENTRO COMO EN LA REFERENCIA -->
     <!-- ================================================= -->
-
 
     <a-plane
-
       id="cortinaIzquierda"
-
-      position="-0.46 0.06 0.016"
-
-      width="0.19"
+      position="-0.405 0.055 0.016"
+      width="0.205"
       height="1.02"
-
       material="
         src: #cortinaIzquierdaAsset;
         shader: flat;
@@ -332,19 +213,14 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
     <a-plane
-
       id="cortinaDerecha"
-
-      position="0.46 0.06 0.016"
-
-      width="0.19"
+      position="0.405 0.055 0.016"
+      width="0.205"
       height="1.02"
-
       material="
         src: #cortinaDerechaAsset;
         shader: flat;
@@ -353,26 +229,19 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 4 · ARBUSTOS -->
-    <!-- DETRÁS DEL SILLÓN -->
+    <!-- 4. ARBUSTOS -->
+    <!-- SUBEN DETRÁS DEL RESPALDO -->
     <!-- ================================================= -->
-
 
     <a-plane
-
       id="arbustos"
-
-      position="0 -0.035 0.022"
-
-      width="0.88"
-      height="0.295"
-
+      position="0 -0.005 0.024"
+      width="0.89"
+      height="0.30"
       material="
         src: #arbustosAsset;
         shader: flat;
@@ -381,25 +250,18 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 5 · TÍTULO -->
+    <!-- 5. TÍTULO -->
     <!-- ================================================= -->
-
 
     <a-plane
-
       id="titulo"
-
       position="0 0.31 0.030"
-
       width="0.53"
       height="0.265"
-
       material="
         src: #tituloAsset;
         shader: flat;
@@ -408,53 +270,19 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 6 · SILLÓN REAL RECORTADO -->
-    <!-- AHORA EL PLANO = EL SILLÓN -->
+    <!-- 6. RAMAS -->
+    <!-- IMPORTANTE: AHORA VAN ANTES DEL SILLÓN -->
     <!-- ================================================= -->
-
 
     <a-plane
-
-      id="sillon"
-
-      position="0 -0.155 0.050"
-
-      width="0.94"
-      height="0.373"
-
-      material="
-        src: #sillonAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;
-      "
-
-    ></a-plane>
-
-
-
-    <!-- ================================================= -->
-    <!-- 7 · MARCO VEGETAL -->
-    <!-- ================================================= -->
-
-
-    <a-plane
-
       id="ramasFrente"
-
-      position="0 0.035 0.058"
-
-      width="1.20"
-      height="0.98"
-
+      position="0 0.055 0.040"
+      width="1.17"
+      height="0.92"
       material="
         src: #ramasAsset;
         shader: flat;
@@ -463,26 +291,40 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 8 · UNIÓN DE PASTOS -->
-    <!-- QUEDA DEBAJO DEL JARDÍN DELANTERO -->
+    <!-- 7. SILLÓN -->
+    <!-- DELANTE DE LAS RAMAS -->
     <!-- ================================================= -->
-
 
     <a-plane
+      id="sillon"
+      position="0 -0.155 0.075"
+      width="0.94"
+      height="0.373"
+      material="
+        src: #sillonAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;
+      "
+    ></a-plane>
 
+
+    <!-- ================================================= -->
+    <!-- 8. UNIÓN DEL JARDÍN -->
+    <!-- MÁS CONTENIDA PARA EVITAR RECTÁNGULOS LATERALES -->
+    <!-- ================================================= -->
+
+    <a-plane
       id="unionJardin"
-
-      position="0 -0.525 0.062"
-
-      width="1.24"
-      height="0.23"
-
+      position="0 -0.485 0.080"
+      width="0.98"
+      height="0.20"
       material="
         src: #pastoJardinAsset;
         shader: flat;
@@ -491,28 +333,20 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 9 · JARDÍN DELANTERO -->
-    <!-- PROFUNDIDAD AR -->
+    <!-- 9. JARDÍN DELANTERO -->
+    <!-- CONSERVAMOS LA SALIDA HACIA CÁMARA -->
     <!-- ================================================= -->
-
 
     <a-plane
-
       id="pastoJardin"
-
-      position="0 -0.555 0.085"
-
-      width="1.20"
-      height="0.46"
-
+      position="0 -0.555 0.095"
+      width="1.10"
+      height="0.42"
       rotation="-12 0 0"
-
       material="
         src: #pastoJardinAsset;
         shader: flat;
@@ -521,29 +355,22 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 10 · PERRITOS -->
-    <!-- X / Y / TAMAÑOS APROBADOS -->
+    <!-- 10. PERRITOS -->
+    <!-- X/Y/TAMAÑOS SIN CAMBIOS -->
     <!-- ================================================= -->
 
 
     <!-- MOLLY -->
 
-
     <a-plane
-
       id="molly"
-
-      position="-0.17 -0.10 0.120"
-
+      position="-0.17 -0.10 0.125"
       width="0.32"
       height="0.32"
-
       material="
         src: #m01;
         shader: flat;
@@ -552,23 +379,16 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
-
 
 
     <!-- BIMBA -->
 
-
     <a-plane
-
       id="bimba"
-
-      position="0.16 -0.10 0.120"
-
+      position="0.16 -0.10 0.125"
       width="0.34"
       height="0.34"
-
       material="
         src: #b01;
         shader: flat;
@@ -577,23 +397,16 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
-
 
 
     <!-- CARLITOS -->
 
-
     <a-plane
-
       id="carlitos"
-
-      position="-0.29 -0.34 0.145"
-
+      position="-0.29 -0.34 0.150"
       width="0.35"
       height="0.35"
-
       material="
         src: #c01;
         shader: flat;
@@ -602,23 +415,16 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
-
 
 
     <!-- NOAH -->
 
-
     <a-plane
-
       id="noah"
-
-      position="0.29 -0.34 0.145"
-
+      position="0.29 -0.34 0.150"
       width="0.34"
       height="0.34"
-
       material="
         src: #n01;
         shader: flat;
@@ -627,25 +433,22 @@
         depthTest: false;
         depthWrite: false;
       "
-
     ></a-plane>
 
 
-
     <!-- ================================================= -->
-    <!-- 11 · FLORES DEL MARCO -->
+    <!-- 11. FLORES INTEGRADAS AL MARCO -->
+    <!-- MÁS CERCA DEL FOLLAJE -->
     <!-- ================================================= -->
 
 
     <!-- IZQUIERDA -->
 
-
     <a-plane
-      position="-0.46 0.34 0.155"
-      width="0.080"
-      height="0.080"
+      position="-0.44 0.32 0.158"
+      width="0.075"
+      height="0.075"
       rotation="0 0 -14"
-
       material="
         src: #florRosaClaroAsset;
         shader: flat;
@@ -658,11 +461,10 @@
 
 
     <a-plane
-      position="-0.52 0.24 0.152"
-      width="0.047"
-      height="0.047"
+      position="-0.46 0.20 0.158"
+      width="0.045"
+      height="0.045"
       rotation="0 0 18"
-
       material="
         src: #florRosaOscuroAsset;
         shader: flat;
@@ -675,11 +477,10 @@
 
 
     <a-plane
-      position="-0.45 0.13 0.158"
-      width="0.095"
-      height="0.095"
+      position="-0.43 0.08 0.158"
+      width="0.080"
+      height="0.080"
       rotation="0 0 -8"
-
       material="
         src: #florLilaAsset;
         shader: flat;
@@ -692,11 +493,10 @@
 
 
     <a-plane
-      position="-0.52 -0.02 0.154"
-      width="0.052"
-      height="0.052"
+      position="-0.46 -0.06 0.158"
+      width="0.048"
+      height="0.048"
       rotation="0 0 20"
-
       material="
         src: #florAzulAsset;
         shader: flat;
@@ -706,35 +506,15 @@
         depthWrite: false;
       "
     ></a-plane>
-
-
-    <a-plane
-      position="-0.50 -0.21 0.160"
-      width="0.070"
-      height="0.070"
-      rotation="0 0 -18"
-
-      material="
-        src: #florRosaClaroAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;
-      "
-    ></a-plane>
-
 
 
     <!-- DERECHA -->
 
-
     <a-plane
-      position="0.47 0.32 0.155"
-      width="0.080"
-      height="0.080"
+      position="0.44 0.31 0.158"
+      width="0.075"
+      height="0.075"
       rotation="0 0 13"
-
       material="
         src: #florRosaClaroAsset;
         shader: flat;
@@ -747,11 +527,10 @@
 
 
     <a-plane
-      position="0.52 0.20 0.152"
-      width="0.048"
-      height="0.048"
+      position="0.46 0.19 0.158"
+      width="0.045"
+      height="0.045"
       rotation="0 0 -16"
-
       material="
         src: #florAzulAsset;
         shader: flat;
@@ -764,11 +543,10 @@
 
 
     <a-plane
-      position="0.46 0.09 0.158"
-      width="0.095"
-      height="0.095"
+      position="0.43 0.07 0.158"
+      width="0.080"
+      height="0.080"
       rotation="0 0 9"
-
       material="
         src: #florLilaAsset;
         shader: flat;
@@ -781,11 +559,10 @@
 
 
     <a-plane
-      position="0.52 -0.06 0.154"
-      width="0.052"
-      height="0.052"
+      position="0.46 -0.07 0.158"
+      width="0.048"
+      height="0.048"
       rotation="0 0 -18"
-
       material="
         src: #florRosaOscuroAsset;
         shader: flat;
@@ -797,35 +574,15 @@
     ></a-plane>
 
 
-    <a-plane
-      position="0.50 -0.22 0.160"
-      width="0.070"
-      height="0.070"
-      rotation="0 0 17"
-
-      material="
-        src: #florRosaClaroAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;
-      "
-    ></a-plane>
-
-
-
     <!-- ================================================= -->
-    <!-- 12 · FLORES DEL JARDÍN DELANTERO -->
+    <!-- 12. FLORES DEL JARDÍN -->
     <!-- ================================================= -->
-
 
     <a-plane
       position="-0.39 -0.57 0.180"
-      width="0.090"
-      height="0.090"
+      width="0.080"
+      height="0.080"
       rotation="-10 0 -12"
-
       material="
         src: #florRosaClaroAsset;
         shader: flat;
@@ -838,11 +595,10 @@
 
 
     <a-plane
-      position="-0.25 -0.62 0.190"
-      width="0.050"
-      height="0.050"
+      position="-0.27 -0.61 0.185"
+      width="0.043"
+      height="0.043"
       rotation="-12 0 18"
-
       material="
         src: #florLilaAsset;
         shader: flat;
@@ -855,11 +611,10 @@
 
 
     <a-plane
-      position="0.28 -0.62 0.190"
-      width="0.050"
-      height="0.050"
+      position="0.29 -0.61 0.185"
+      width="0.043"
+      height="0.043"
       rotation="-12 0 -15"
-
       material="
         src: #florAzulAsset;
         shader: flat;
@@ -872,11 +627,10 @@
 
 
     <a-plane
-      position="0.42 -0.56 0.180"
-      width="0.090"
-      height="0.090"
+      position="0.40 -0.56 0.180"
+      width="0.080"
+      height="0.080"
       rotation="-10 0 12"
-
       material="
         src: #florRosaOscuroAsset;
         shader: flat;
@@ -890,227 +644,114 @@
 
   </a-entity>
 
-
 </a-scene>
-
-
-
-<!-- ================================================= -->
-<!-- ANIMACIONES -->
-<!-- ================================================= -->
 
 
 <script>
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
   const target = document.querySelector("#target");
 
-
   const carlitos = document.querySelector("#carlitos");
-
   const molly = document.querySelector("#molly");
-
   const noah = document.querySelector("#noah");
-
   const bimba = document.querySelector("#bimba");
-
 
   const debug = document.querySelector("#debug");
 
 
-
   let carlitosFrame = 1;
-
   let mollyFrame = 1;
-
   let noahFrame = 1;
-
   let bimbaFrame = 1;
-
 
   let timer = null;
 
 
-
   function cambiarFrame(perrito, prefijo, frame) {
-
 
     const numero = String(frame).padStart(2, "0");
 
-
     perrito.setAttribute(
-
       "material",
-
       "src",
-
       `#${prefijo}${numero}`
-
     );
 
   }
 
 
-
   function animar() {
 
-
-    cambiarFrame(
-      carlitos,
-      "c",
-      carlitosFrame
-    );
-
-
-    cambiarFrame(
-      molly,
-      "m",
-      mollyFrame
-    );
-
-
-    cambiarFrame(
-      noah,
-      "n",
-      noahFrame
-    );
-
-
-    cambiarFrame(
-      bimba,
-      "b",
-      bimbaFrame
-    );
-
+    cambiarFrame(carlitos, "c", carlitosFrame);
+    cambiarFrame(molly, "m", mollyFrame);
+    cambiarFrame(noah, "n", noahFrame);
+    cambiarFrame(bimba, "b", bimbaFrame);
 
 
     carlitosFrame++;
-
     mollyFrame++;
-
     noahFrame++;
-
     bimbaFrame++;
 
 
-
-    if (carlitosFrame > 16) {
-
-      carlitosFrame = 1;
-
-    }
-
-
-    if (mollyFrame > 4) {
-
-      mollyFrame = 1;
-
-    }
-
-
-    if (noahFrame > 4) {
-
-      noahFrame = 1;
-
-    }
-
-
-    if (bimbaFrame > 4) {
-
-      bimbaFrame = 1;
-
-    }
-
+    if (carlitosFrame > 16) carlitosFrame = 1;
+    if (mollyFrame > 4) mollyFrame = 1;
+    if (noahFrame > 4) noahFrame = 1;
+    if (bimbaFrame > 4) bimbaFrame = 1;
 
 
     debug.innerHTML =
-
       `🐶 CARLITOS ${carlitosFrame}/16 · MOLLY ${mollyFrame}/4<br>
        NOAH ${noahFrame}/4 · BIMBA ${bimbaFrame}/4`;
 
   }
 
 
+  target.addEventListener("targetFound", () => {
 
-  target.addEventListener(
-
-    "targetFound",
-
-    () => {
+    debug.innerHTML =
+      "TARGET ENCONTRADO 🐶🐶🐶🐶";
 
 
-      debug.innerHTML =
-        "TARGET ENCONTRADO 🐶🐶🐶🐶";
+    if (timer) {
+      clearInterval(timer);
+    }
 
 
-      if (timer) {
-
-        clearInterval(timer);
-
-      }
-
-
-      carlitosFrame = 1;
-
-      mollyFrame = 1;
-
-      noahFrame = 1;
-
-      bimbaFrame = 1;
+    carlitosFrame = 1;
+    mollyFrame = 1;
+    noahFrame = 1;
+    bimbaFrame = 1;
 
 
+    animar();
+
+
+    timer = setInterval(() => {
       animar();
+    }, 500);
+
+  });
 
 
-      timer = setInterval(
+  target.addEventListener("targetLost", () => {
 
-        () => {
+    debug.innerHTML =
+      "TARGET PERDIDO";
 
-          animar();
 
-        },
-
-        500
-
-      );
-
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
     }
 
-  );
-
-
-
-  target.addEventListener(
-
-    "targetLost",
-
-    () => {
-
-
-      debug.innerHTML =
-        "TARGET PERDIDO";
-
-
-      if (timer) {
-
-        clearInterval(timer);
-
-        timer = null;
-
-      }
-
-    }
-
-  );
-
+  });
 
 });
 
 </script>
 
-
 </body>
-
 </html>
