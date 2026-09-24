@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
 
@@ -22,14 +23,18 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 99999;
+
       background: rgba(0,0,0,.72);
       color: white;
+
       padding: 8px 14px;
       border-radius: 10px;
+
       font-family: Arial, sans-serif;
       font-size: 13px;
       font-weight: bold;
       text-align: center;
+
       pointer-events: none;
     }
   </style>
@@ -50,11 +55,20 @@
 
     <!-- ESCENA -->
 
-    <img id="cieloAsset" src="./escena/Cielo.PNG">
-    <img id="pastoAtrasAsset" src="./escena/Pasto%20atr%C3%A1s.PNG">
-    <img id="pastoJardinAsset" src="./escena/Pasto%20jard%C3%ADn.PNG">
-    <img id="arbustosAsset" src="./escena/Arbustos.PNG">
-    <img id="sillonAsset" src="./escena/Sillon.png">
+    <img id="cieloAsset"
+         src="./escena/Cielo.PNG">
+
+    <img id="pastoAtrasAsset"
+         src="./escena/Pasto%20atr%C3%A1s.PNG">
+
+    <img id="pastoJardinAsset"
+         src="./escena/Pasto%20jard%C3%ADn.PNG">
+
+    <img id="arbustosAsset"
+         src="./escena/Arbustos.PNG">
+
+    <img id="sillonAsset"
+         src="./escena/Sillon.png">
 
     <img id="cortinaIzquierdaAsset"
          src="./escena/cortina%20izquierda.png">
@@ -138,7 +152,9 @@
     mindar-image-target="targetIndex: 0">
 
 
-    <!-- CIELO -->
+    <!-- ================================================= -->
+    <!-- 1 · CIELO -->
+    <!-- ================================================= -->
 
     <a-plane
       id="cielo"
@@ -153,13 +169,15 @@
     </a-plane>
 
 
-    <!-- PASTO ATRÁS -->
+    <!-- ================================================= -->
+    <!-- 2 · PASTO ATRÁS -->
+    <!-- ================================================= -->
 
     <a-plane
       id="pastoAtras"
       position="0 -0.41 0.010"
       width="1.02"
-      height="0.22"
+      height="0.24"
       material="
         src: #pastoAtrasAsset;
         shader: flat;
@@ -168,7 +186,9 @@
     </a-plane>
 
 
-    <!-- ARBUSTOS -->
+    <!-- ================================================= -->
+    <!-- 3 · ARBUSTOS -->
+    <!-- ================================================= -->
 
     <a-plane
       id="arbustos"
@@ -185,13 +205,16 @@
     </a-plane>
 
 
-    <!-- PASTO JARDÍN -->
+    <!-- ================================================= -->
+    <!-- 4 · PASTO JARDÍN -->
+    <!-- MANTENEMOS LA PROFUNDIDAD DE V27 -->
+    <!-- ================================================= -->
 
     <a-plane
       id="pastoJardin"
-      position="0 -0.53 0.018"
+      position="0 -0.55 0.020"
       width="1.22"
-      height="0.34"
+      height="0.36"
       material="
         src: #pastoJardinAsset;
         shader: flat;
@@ -202,110 +225,14 @@
     </a-plane>
 
 
-    <!-- SILLÓN -->
-
-    <a-plane
-      id="sillon"
-      position="0 -0.03 0.022"
-      width="0.98"
-      height="0.56"
-      material="
-        src: #sillonAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <!-- ================================= -->
-    <!-- PERRITOS BLOQUEADOS 🔒 -->
-    <!-- ================================= -->
-
-    <a-plane
-      id="molly"
-      position="-0.17 -0.10 0.030"
-      width="0.32"
-      height="0.32"
-      material="
-        src: #m01;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <a-plane
-      id="bimba"
-      position="0.16 -0.10 0.030"
-      width="0.34"
-      height="0.34"
-      material="
-        src: #b01;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <a-plane
-      id="carlitos"
-      position="-0.29 -0.34 0.030"
-      width="0.35"
-      height="0.35"
-      material="
-        src: #c01;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <a-plane
-      id="noah"
-      position="0.29 -0.34 0.030"
-      width="0.34"
-      height="0.34"
-      material="
-        src: #n01;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <!-- TÍTULO -->
-
-    <a-plane
-      id="titulo"
-      position="0 0.36 0.038"
-      width="0.50"
-      height="0.25"
-      material="
-        src: #tituloAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <!-- CORTINAS MÁS HACIA LOS EXTREMOS -->
+    <!-- ================================================= -->
+    <!-- 5 · CORTINAS -->
+    <!-- ================================================= -->
 
     <a-plane
       id="cortinaIzquierda"
-      position="-0.51 0.02 0.040"
-      width="0.15"
+      position="-0.50 0.02 0.025"
+      width="0.17"
       height="0.92"
       material="
         src: #cortinaIzquierdaAsset;
@@ -319,8 +246,8 @@
 
     <a-plane
       id="cortinaDerecha"
-      position="0.51 0.02 0.040"
-      width="0.15"
+      position="0.50 0.02 0.025"
+      width="0.17"
       height="0.92"
       material="
         src: #cortinaDerechaAsset;
@@ -332,14 +259,34 @@
     </a-plane>
 
 
-    <!-- ================================= -->
-    <!-- ENREDADERAS -->
-    <!-- MÁS ABIERTAS -->
-    <!-- ================================= -->
+    <!-- ================================================= -->
+    <!-- 6 · SILLÓN -->
+    <!-- MÁS GRANDE Y VISIBLE -->
+    <!-- ================================================= -->
+
+    <a-plane
+      id="sillon"
+      position="0 -0.055 0.030"
+      width="0.92"
+      height="0.52"
+      material="
+        src: #sillonAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <!-- ================================================= -->
+    <!-- 7 · ENREDADERAS -->
+    <!-- DETRÁS DE LOS PERROS -->
+    <!-- ================================================= -->
 
     <a-plane
       id="ramasFrente"
-      position="0 0.02 0.048"
+      position="0 0.02 0.040"
       width="1.18"
       height="0.89"
       material="
@@ -352,17 +299,17 @@
     </a-plane>
 
 
-    <!-- ================================= -->
-    <!-- FLORES IZQUIERDA -->
-    <!-- ================================= -->
+    <!-- ================================================= -->
+    <!-- 8 · TÍTULO -->
+    <!-- ================================================= -->
 
     <a-plane
-      position="-0.50 0.31 0.060"
-      width="0.090"
-      height="0.090"
-      rotation="0 0 -10"
+      id="titulo"
+      position="0 0.36 0.045"
+      width="0.50"
+      height="0.25"
       material="
-        src: #florRosaOscuroAsset;
+        src: #tituloAsset;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -371,13 +318,22 @@
     </a-plane>
 
 
+    <!-- ================================================= -->
+    <!-- 9 · PERRITOS -->
+    <!-- TODOS DELANTE DE ENREDADERAS Y SILLÓN -->
+    <!-- X / Y / TAMAÑOS BLOQUEADOS -->
+    <!-- ================================================= -->
+
+
+    <!-- MOLLY -->
+
     <a-plane
-      position="-0.48 0.20 0.062"
-      width="0.060"
-      height="0.060"
-      rotation="0 0 15"
+      id="molly"
+      position="-0.17 -0.10 0.080"
+      width="0.32"
+      height="0.32"
       material="
-        src: #florRosaClaroAsset;
+        src: #m01;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -386,13 +342,15 @@
     </a-plane>
 
 
+    <!-- BIMBA -->
+
     <a-plane
-      position="-0.51 0.08 0.064"
-      width="0.075"
-      height="0.075"
-      rotation="0 0 -16"
+      id="bimba"
+      position="0.16 -0.10 0.080"
+      width="0.34"
+      height="0.34"
       material="
-        src: #florLilaAsset;
+        src: #b01;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -401,13 +359,15 @@
     </a-plane>
 
 
+    <!-- CARLITOS -->
+
     <a-plane
-      position="-0.49 -0.05 0.066"
-      width="0.060"
-      height="0.060"
-      rotation="0 0 12"
+      id="carlitos"
+      position="-0.29 -0.34 0.085"
+      width="0.35"
+      height="0.35"
       material="
-        src: #florAzulAsset;
+        src: #c01;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -416,13 +376,15 @@
     </a-plane>
 
 
+    <!-- NOAH -->
+
     <a-plane
-      position="-0.51 -0.17 0.068"
-      width="0.075"
-      height="0.075"
-      rotation="0 0 -10"
+      id="noah"
+      position="0.29 -0.34 0.085"
+      width="0.34"
+      height="0.34"
       material="
-        src: #florRosaClaroAsset;
+        src: #n01;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
@@ -431,45 +393,34 @@
     </a-plane>
 
 
-    <a-plane
-      position="-0.49 -0.29 0.070"
-      width="0.065"
-      height="0.065"
-      rotation="0 0 20"
-      material="
-        src: #florLilaAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
+    <!-- ================================================= -->
+    <!-- 10 · FLORES -->
+    <!-- AL FRENTE DEL MARCO, SIN INVADIR PERRITOS -->
+    <!-- ================================================= -->
 
+
+    <!-- IZQUIERDA -->
 
     <a-plane
-      position="-0.45 -0.42 0.074"
-      width="0.075"
-      height="0.075"
-      rotation="0 0 -15"
-      material="
-        src: #florRosaOscuroAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <!-- ================================= -->
-    <!-- FLORES DERECHA -->
-    <!-- ================================= -->
-
-    <a-plane
-      position="0.50 0.30 0.060"
+      position="-0.50 0.31 0.095"
       width="0.085"
       height="0.085"
-      rotation="0 0 12"
+      rotation="0 0 -12"
+      material="
+        src: #florRosaOscuroAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <a-plane
+      position="-0.47 0.20 0.092"
+      width="0.052"
+      height="0.052"
+      rotation="0 0 20"
       material="
         src: #florRosaClaroAsset;
         shader: flat;
@@ -481,9 +432,9 @@
 
 
     <a-plane
-      position="0.48 0.19 0.062"
-      width="0.060"
-      height="0.060"
+      position="-0.51 0.08 0.096"
+      width="0.070"
+      height="0.070"
       rotation="0 0 -18"
       material="
         src: #florLilaAsset;
@@ -496,25 +447,10 @@
 
 
     <a-plane
-      position="0.51 0.07 0.064"
-      width="0.075"
-      height="0.075"
-      rotation="0 0 8"
-      material="
-        src: #florRosaOscuroAsset;
-        shader: flat;
-        transparent: true;
-        alphaTest: 0.01;
-        depthTest: false;
-        depthWrite: false;">
-    </a-plane>
-
-
-    <a-plane
-      position="0.49 -0.05 0.066"
-      width="0.060"
-      height="0.060"
-      rotation="0 0 -12"
+      position="-0.48 -0.05 0.091"
+      width="0.052"
+      height="0.052"
+      rotation="0 0 15"
       material="
         src: #florAzulAsset;
         shader: flat;
@@ -526,10 +462,10 @@
 
 
     <a-plane
-      position="0.51 -0.17 0.068"
-      width="0.075"
-      height="0.075"
-      rotation="0 0 15"
+      position="-0.51 -0.18 0.096"
+      width="0.070"
+      height="0.070"
+      rotation="0 0 -12"
       material="
         src: #florRosaClaroAsset;
         shader: flat;
@@ -541,9 +477,56 @@
 
 
     <a-plane
-      position="0.49 -0.29 0.070"
-      width="0.065"
-      height="0.065"
+      position="-0.48 -0.30 0.092"
+      width="0.055"
+      height="0.055"
+      rotation="0 0 22"
+      material="
+        src: #florLilaAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <a-plane
+      position="-0.45 -0.43 0.098"
+      width="0.070"
+      height="0.070"
+      rotation="0 0 -15"
+      material="
+        src: #florRosaOscuroAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <!-- DERECHA -->
+
+    <a-plane
+      position="0.50 0.30 0.095"
+      width="0.080"
+      height="0.080"
+      rotation="0 0 12"
+      material="
+        src: #florRosaClaroAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <a-plane
+      position="0.47 0.19 0.092"
+      width="0.052"
+      height="0.052"
       rotation="0 0 -20"
       material="
         src: #florLilaAsset;
@@ -556,10 +539,25 @@
 
 
     <a-plane
-      position="0.45 -0.42 0.074"
-      width="0.075"
-      height="0.075"
-      rotation="0 0 15"
+      position="0.51 0.07 0.096"
+      width="0.070"
+      height="0.070"
+      rotation="0 0 10"
+      material="
+        src: #florRosaOscuroAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <a-plane
+      position="0.48 -0.05 0.091"
+      width="0.052"
+      height="0.052"
+      rotation="0 0 -15"
       material="
         src: #florAzulAsset;
         shader: flat;
@@ -570,12 +568,10 @@
     </a-plane>
 
 
-    <!-- FLORES PEQUEÑAS ARRIBA -->
-
     <a-plane
-      position="-0.34 0.43 0.070"
-      width="0.050"
-      height="0.050"
+      position="0.51 -0.18 0.096"
+      width="0.070"
+      height="0.070"
       rotation="0 0 15"
       material="
         src: #florRosaClaroAsset;
@@ -588,9 +584,56 @@
 
 
     <a-plane
-      position="0.34 0.43 0.070"
-      width="0.050"
-      height="0.050"
+      position="0.48 -0.30 0.092"
+      width="0.055"
+      height="0.055"
+      rotation="0 0 -22"
+      material="
+        src: #florLilaAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <a-plane
+      position="0.45 -0.43 0.098"
+      width="0.070"
+      height="0.070"
+      rotation="0 0 15"
+      material="
+        src: #florAzulAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <!-- FLORES SUPERIORES -->
+
+    <a-plane
+      position="-0.34 0.43 0.092"
+      width="0.048"
+      height="0.048"
+      rotation="0 0 15"
+      material="
+        src: #florRosaClaroAsset;
+        shader: flat;
+        transparent: true;
+        alphaTest: 0.01;
+        depthTest: false;
+        depthWrite: false;">
+    </a-plane>
+
+
+    <a-plane
+      position="0.34 0.43 0.092"
+      width="0.048"
+      height="0.048"
       rotation="0 0 -15"
       material="
         src: #florRosaOscuroAsset;
@@ -620,6 +663,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const debug = document.querySelector("#debug");
 
+
   let carlitosFrame = 1;
   let mollyFrame = 1;
   let noahFrame = 1;
@@ -648,15 +692,18 @@ document.addEventListener("DOMContentLoaded", () => {
     cambiarFrame(noah, "n", noahFrame);
     cambiarFrame(bimba, "b", bimbaFrame);
 
+
     carlitosFrame++;
     mollyFrame++;
     noahFrame++;
     bimbaFrame++;
 
+
     if (carlitosFrame > 16) carlitosFrame = 1;
     if (mollyFrame > 4) mollyFrame = 1;
     if (noahFrame > 4) noahFrame = 1;
     if (bimbaFrame > 4) bimbaFrame = 1;
+
 
     debug.innerHTML =
       `🐶 CARLITOS ${carlitosFrame}/16 · MOLLY ${mollyFrame}/4<br>
@@ -670,16 +717,20 @@ document.addEventListener("DOMContentLoaded", () => {
     debug.innerHTML =
       "TARGET ENCONTRADO 🐶🐶🐶🐶";
 
+
     if (timer) {
       clearInterval(timer);
     }
+
 
     carlitosFrame = 1;
     mollyFrame = 1;
     noahFrame = 1;
     bimbaFrame = 1;
 
+
     animar();
+
 
     timer = setInterval(() => {
       animar();
@@ -692,6 +743,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     debug.innerHTML =
       "TARGET PERDIDO";
+
 
     if (timer) {
       clearInterval(timer);
