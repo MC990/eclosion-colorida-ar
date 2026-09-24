@@ -186,12 +186,6 @@
 
     <!-- ============================================ -->
     <!-- 2. PASTO MEDIO -->
-    <!--
-      PLANO 2D PRINCIPAL DEL JARDÍN.
-
-      Sube detrás del sillón para que no aparezca
-      una separación entre sofá y césped.
-    -->
     <!-- ============================================ -->
 
     <a-plane
@@ -211,17 +205,16 @@
     <!-- ============================================ -->
     <!-- 3. CORTINAS -->
     <!--
-      MÁS PRESENTES QUE V36.
-
-      Deben leerse como paneles detrás de las plantas,
-      no como dos postes.
+      V38:
+      MISMO CENTRO APROBADO,
+      PERO MÁS ANCHAS.
     -->
     <!-- ============================================ -->
 
     <a-plane
       id="cortinaIzquierda"
       position="-0.300 0.105 0.014"
-      width="0.355"
+      width="0.430"
       height="1.16"
       material="
         src:#cortinaIzquierdaAsset;
@@ -237,7 +230,7 @@
     <a-plane
       id="cortinaDerecha"
       position="0.300 0.105 0.014"
-      width="0.355"
+      width="0.430"
       height="1.16"
       material="
         src:#cortinaDerechaAsset;
@@ -252,12 +245,6 @@
 
     <!-- ============================================ -->
     <!-- 4. ARBUSTOS -->
-    <!--
-      Recuperamos claramente el horizonte verde
-      del MASTER.
-
-      La parte inferior queda detrás del sillón.
-    -->
     <!-- ============================================ -->
 
     <a-plane
@@ -300,22 +287,20 @@
     <!-- ============================================ -->
     <!-- 6. RAMAS -->
     <!--
-      MÁS ENVOLVENTES.
+      V38:
+      SUBEN Y SE ACORTAN VERTICALMENTE.
 
-      Recuperan:
-      - esquinas superiores
-      - laterales gruesos
-      - continuidad hacia abajo
-
-      SIGUEN DETRÁS DEL SILLÓN.
+      OBJETIVO:
+      QUE EL FINAL INFERIOR QUEDE DETRÁS
+      DEL SILLÓN Y NO CONTINÚE HASTA LOS PERROS.
     -->
     <!-- ============================================ -->
 
     <a-plane
       id="ramasFrente"
-      position="0 0.090 0.045"
+      position="0 0.175 0.045"
       width="1.30"
-      height="1.12"
+      height="0.94"
       material="
         src:#ramasAsset;
         shader:flat;
@@ -328,17 +313,8 @@
 
 
     <!-- ============================================ -->
-    <!-- 7. FLORES LATERALES -->
-    <!--
-      AHORA ESTÁN EN SU CAPA CORRECTA:
-      RAMAS/FLORES → SILLÓN → PERROS
-
-      Ya no se renderizan por encima de los perros.
-    -->
+    <!-- 7. FLORES DEL MARCO -->
     <!-- ============================================ -->
-
-
-    <!-- IZQUIERDA SUPERIOR -->
 
     <a-plane
       position="-0.430 0.330 0.050"
@@ -356,8 +332,6 @@
     ></a-plane>
 
 
-    <!-- IZQUIERDA MEDIA ALTA -->
-
     <a-plane
       position="-0.445 0.205 0.050"
       width="0.052"
@@ -373,8 +347,6 @@
       "
     ></a-plane>
 
-
-    <!-- IZQUIERDA MEDIA -->
 
     <a-plane
       position="-0.435 0.090 0.050"
@@ -392,10 +364,8 @@
     ></a-plane>
 
 
-    <!-- IZQUIERDA BAJA -->
-
     <a-plane
-      position="-0.450 -0.025 0.050"
+      position="-0.450 -0.010 0.050"
       width="0.045"
       height="0.045"
       rotation="0 0 -8"
@@ -409,8 +379,6 @@
       "
     ></a-plane>
 
-
-    <!-- DERECHA SUPERIOR -->
 
     <a-plane
       position="0.430 0.320 0.050"
@@ -428,8 +396,6 @@
     ></a-plane>
 
 
-    <!-- DERECHA MEDIA ALTA -->
-
     <a-plane
       position="0.445 0.190 0.050"
       width="0.052"
@@ -445,8 +411,6 @@
       "
     ></a-plane>
 
-
-    <!-- DERECHA MEDIA -->
 
     <a-plane
       position="0.435 0.075 0.050"
@@ -464,10 +428,8 @@
     ></a-plane>
 
 
-    <!-- DERECHA BAJA -->
-
     <a-plane
-      position="0.450 -0.035 0.050"
+      position="0.450 -0.010 0.050"
       width="0.045"
       height="0.045"
       rotation="0 0 8"
@@ -484,12 +446,16 @@
 
     <!-- ============================================ -->
     <!-- 8. SILLÓN -->
-    <!-- BLOQUEADO -->
+    <!--
+      V38:
+      MISMO TAMAÑO.
+      BAJA DE -0.145 A -0.190.
+    -->
     <!-- ============================================ -->
 
     <a-plane
       id="sillon"
-      position="0 -0.145 0.115"
+      position="0 -0.190 0.115"
       width="0.94"
       height="0.373"
       material="
@@ -505,7 +471,9 @@
 
     <!-- ============================================ -->
     <!-- 9. MOLLY -->
-    <!-- BLOQUEADA -->
+    <!--
+      X Y TAMAÑO BLOQUEADOS.
+    -->
     <!-- ============================================ -->
 
     <a-plane
@@ -526,7 +494,6 @@
 
     <!-- ============================================ -->
     <!-- 10. BIMBA -->
-    <!-- BLOQUEADA -->
     <!-- ============================================ -->
 
     <a-plane
@@ -547,15 +514,6 @@
 
     <!-- ============================================ -->
     <!-- 11. JARDÍN FRONTAL -->
-    <!--
-      V37:
-      MENOS INCLINADO.
-
-      Primero buscamos continuidad con el MASTER.
-
-      El efecto AR sigue presente,
-      pero ya no debe dominar la composición.
-    -->
     <!-- ============================================ -->
 
     <a-plane
