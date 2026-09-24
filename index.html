@@ -63,11 +63,15 @@
   <a-assets>
 
 
-    <!-- CIELO -->
+    <!-- ESCENA -->
 
     <img
       id="cieloAsset"
       src="./escena/Cielo.PNG">
+
+    <img
+      id="pastoAtrasAsset"
+      src="./escena/Pasto%20atr%C3%A1s.PNG">
 
 
     <!-- CARLITOS -->
@@ -137,7 +141,6 @@
 
     <!-- ========================= -->
     <!-- CIELO + NUBES -->
-    <!-- CAPA TRASERA -->
     <!-- ========================= -->
 
     <a-plane
@@ -157,8 +160,29 @@
 
 
     <!-- ========================= -->
+    <!-- PASTO ATRÁS -->
+    <!-- NUEVA CAPA -->
+    <!-- ========================= -->
+
+    <a-plane
+      id="pastoAtras"
+
+      position="0 -0.31 0.010"
+
+      width="1.00"
+      height="1.00"
+
+      material="
+        src: #pastoAtrasAsset;
+        shader: flat;
+        transparent: false;
+        depthWrite: true;">
+    </a-plane>
+
+
+    <!-- ========================= -->
     <!-- MOLLY -->
-    <!-- BLOQUEADA -->
+    <!-- BLOQUEADA 🔒 -->
     <!-- ========================= -->
 
     <a-plane
@@ -180,7 +204,7 @@
 
     <!-- ========================= -->
     <!-- BIMBA -->
-    <!-- BLOQUEADA -->
+    <!-- BLOQUEADA 🔒 -->
     <!-- ========================= -->
 
     <a-plane
@@ -202,7 +226,7 @@
 
     <!-- ========================= -->
     <!-- CARLITOS -->
-    <!-- BLOQUEADO -->
+    <!-- BLOQUEADO 🔒 -->
     <!-- ========================= -->
 
     <a-plane
@@ -224,7 +248,7 @@
 
     <!-- ========================= -->
     <!-- NOAH -->
-    <!-- BLOQUEADO -->
+    <!-- BLOQUEADO 🔒 -->
     <!-- ========================= -->
 
     <a-plane
@@ -360,6 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (timer) {
 
       clearInterval(timer);
+
       timer = null;
 
     }
