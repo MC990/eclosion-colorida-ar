@@ -63,11 +63,14 @@
   <a-assets>
 
 
-    <!-- ESCENA -->
+    <!-- CIELO -->
 
     <img
       id="cieloAsset"
       src="./escena/Cielo.PNG">
+
+
+    <!-- PASTO ATRÁS -->
 
     <img
       id="pastoAtrasAsset"
@@ -140,13 +143,14 @@
 
 
     <!-- ========================= -->
-    <!-- CIELO + NUBES -->
+    <!-- CIELO -->
+    <!-- FONDO -->
     <!-- ========================= -->
 
     <a-plane
       id="cielo"
 
-      position="0 0.05 0.005"
+      position="0 0.05 0.001"
 
       width="1.00"
       height="1.50"
@@ -161,16 +165,16 @@
 
     <!-- ========================= -->
     <!-- PASTO ATRÁS -->
-    <!-- NUEVA CAPA -->
+    <!-- DELANTE DEL CIELO -->
     <!-- ========================= -->
 
     <a-plane
       id="pastoAtras"
 
-      position="0 -0.31 0.010"
+      position="0 -0.37 0.015"
 
       width="1.00"
-      height="1.00"
+      height="0.32"
 
       material="
         src: #pastoAtrasAsset;
@@ -181,14 +185,13 @@
 
 
     <!-- ========================= -->
-    <!-- MOLLY -->
-    <!-- BLOQUEADA 🔒 -->
+    <!-- MOLLY 🔒 -->
     <!-- ========================= -->
 
     <a-plane
       id="molly"
 
-      position="-0.17 -0.10 0.02"
+      position="-0.17 -0.10 0.030"
 
       width="0.32"
       height="0.32"
@@ -203,14 +206,13 @@
 
 
     <!-- ========================= -->
-    <!-- BIMBA -->
-    <!-- BLOQUEADA 🔒 -->
+    <!-- BIMBA 🔒 -->
     <!-- ========================= -->
 
     <a-plane
       id="bimba"
 
-      position="0.16 -0.10 0.02"
+      position="0.16 -0.10 0.030"
 
       width="0.34"
       height="0.34"
@@ -225,14 +227,13 @@
 
 
     <!-- ========================= -->
-    <!-- CARLITOS -->
-    <!-- BLOQUEADO 🔒 -->
+    <!-- CARLITOS 🔒 -->
     <!-- ========================= -->
 
     <a-plane
       id="carlitos"
 
-      position="-0.29 -0.34 0.02"
+      position="-0.29 -0.34 0.030"
 
       width="0.35"
       height="0.35"
@@ -247,14 +248,13 @@
 
 
     <!-- ========================= -->
-    <!-- NOAH -->
-    <!-- BLOQUEADO 🔒 -->
+    <!-- NOAH 🔒 -->
     <!-- ========================= -->
 
     <a-plane
       id="noah"
 
-      position="0.29 -0.34 0.02"
+      position="0.29 -0.34 0.030"
 
       width="0.34"
       height="0.34"
@@ -384,7 +384,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (timer) {
 
       clearInterval(timer);
-
       timer = null;
 
     }
