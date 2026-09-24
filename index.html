@@ -23,22 +23,30 @@
       left: 50%;
       transform: translateX(-50%);
       z-index: 99999;
+
       background: rgba(0,0,0,.75);
       color: white;
+
       padding: 8px 14px;
       border-radius: 10px;
+
       font-family: Arial, sans-serif;
       font-size: 13px;
       font-weight: bold;
+
       text-align: center;
       pointer-events: none;
     }
   </style>
 </head>
 
+
 <body>
 
-<div id="debug">ESPERANDO TARGET...</div>
+<div id="debug">
+  ESPERANDO TARGET...
+</div>
+
 
 <a-scene
   mindar-image="imageTargetSrc: ./targets.mind;"
@@ -47,18 +55,27 @@
   vr-mode-ui="enabled: false"
   device-orientation-permission-ui="enabled: false">
 
+
+  <!-- ======================================== -->
+  <!-- ASSETS -->
+  <!-- ======================================== -->
+
   <a-assets>
+
 
     <!-- ESCENA -->
 
-    <img id="cieloAsset"
-         src="./escena/Cielo.PNG">
+    <img
+      id="cieloAsset"
+      src="./escena/Cielo.PNG">
 
-    <img id="pastoAtrasAsset"
-         src="./escena/Pasto%20atr%C3%A1s.PNG">
+    <img
+      id="pastoAtrasAsset"
+      src="./escena/Pasto%20atr%C3%A1s.PNG">
 
-    <img id="pastoJardinAsset"
-         src="./escena/Pasto%20jard%C3%ADn.PNG">
+    <img
+      id="pastoJardinAsset"
+      src="./escena/Pasto%20jard%C3%ADn.PNG">
 
 
     <!-- CARLITOS -->
@@ -107,22 +124,34 @@
   </a-assets>
 
 
+  <!-- ======================================== -->
+  <!-- CÁMARA -->
+  <!-- ======================================== -->
+
   <a-camera
     position="0 0 0"
     look-controls="enabled: false">
   </a-camera>
 
 
+  <!-- ======================================== -->
+  <!-- TARGET -->
+  <!-- ======================================== -->
+
   <a-entity
     id="target"
     mindar-image-target="targetIndex: 0">
 
 
+    <!-- ====================================== -->
     <!-- CIELO -->
+    <!-- ====================================== -->
 
     <a-plane
       id="cielo"
+
       position="0 0.05 0.001"
+
       width="1.00"
       height="1.50"
 
@@ -134,11 +163,15 @@
     </a-plane>
 
 
+    <!-- ====================================== -->
     <!-- PASTO ATRÁS -->
+    <!-- ====================================== -->
 
     <a-plane
       id="pastoAtras"
+
       position="0 -0.43 0.015"
+
       width="1.00"
       height="0.22"
 
@@ -150,31 +183,43 @@
     </a-plane>
 
 
-    <!-- ================================= -->
+    <!-- ====================================== -->
     <!-- PASTO JARDÍN -->
-    <!-- MÁS ANCHO Y DETRÁS DE LOS PERROS -->
-    <!-- ================================= -->
+    <!--
+         MÁS ANCHO
+         DETRÁS DE LOS PERROS
+         PROPORCIÓN CONSERVADA
+    -->
+    <!-- ====================================== -->
 
     <a-plane
       id="pastoJardin"
-      position="0 -0.40 0.025"
-      width="1.35"
-      height="0.76"
+
+      position="0 -0.46 0.024"
+
+      width="1.50"
+      height="0.844"
 
       material="
         src: #pastoJardinAsset;
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
-        depthWrite: false;">
+        depthTest: true;
+        depthWrite: false;
+        side: double;">
     </a-plane>
 
 
+    <!-- ====================================== -->
     <!-- MOLLY 🔒 -->
+    <!-- ====================================== -->
 
     <a-plane
       id="molly"
+
       position="-0.17 -0.10 0.030"
+
       width="0.32"
       height="0.32"
 
@@ -183,15 +228,20 @@
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
+        depthTest: true;
         depthWrite: false;">
     </a-plane>
 
 
+    <!-- ====================================== -->
     <!-- BIMBA 🔒 -->
+    <!-- ====================================== -->
 
     <a-plane
       id="bimba"
+
       position="0.16 -0.10 0.030"
+
       width="0.34"
       height="0.34"
 
@@ -200,15 +250,20 @@
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
+        depthTest: true;
         depthWrite: false;">
     </a-plane>
 
 
+    <!-- ====================================== -->
     <!-- CARLITOS 🔒 -->
+    <!-- ====================================== -->
 
     <a-plane
       id="carlitos"
+
       position="-0.29 -0.34 0.030"
+
       width="0.35"
       height="0.35"
 
@@ -217,15 +272,20 @@
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
+        depthTest: true;
         depthWrite: false;">
     </a-plane>
 
 
+    <!-- ====================================== -->
     <!-- NOAH 🔒 -->
+    <!-- ====================================== -->
 
     <a-plane
       id="noah"
+
       position="0.29 -0.34 0.030"
+
       width="0.34"
       height="0.34"
 
@@ -234,6 +294,7 @@
         shader: flat;
         transparent: true;
         alphaTest: 0.01;
+        depthTest: true;
         depthWrite: false;">
     </a-plane>
 
@@ -255,6 +316,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bimba = document.querySelector("#bimba");
 
   const debug = document.querySelector("#debug");
+
 
   let carlitosFrame = 1;
   let mollyFrame = 1;
@@ -284,15 +346,29 @@ document.addEventListener("DOMContentLoaded", () => {
     cambiarFrame(noah, "n", noahFrame);
     cambiarFrame(bimba, "b", bimbaFrame);
 
+
     carlitosFrame++;
     mollyFrame++;
     noahFrame++;
     bimbaFrame++;
 
-    if (carlitosFrame > 16) carlitosFrame = 1;
-    if (mollyFrame > 4) mollyFrame = 1;
-    if (noahFrame > 4) noahFrame = 1;
-    if (bimbaFrame > 4) bimbaFrame = 1;
+
+    if (carlitosFrame > 16) {
+      carlitosFrame = 1;
+    }
+
+    if (mollyFrame > 4) {
+      mollyFrame = 1;
+    }
+
+    if (noahFrame > 4) {
+      noahFrame = 1;
+    }
+
+    if (bimbaFrame > 4) {
+      bimbaFrame = 1;
+    }
+
 
     debug.innerHTML =
       `🐶 CARLITOS ${carlitosFrame}/16 · MOLLY ${mollyFrame}/4<br>
@@ -306,19 +382,25 @@ document.addEventListener("DOMContentLoaded", () => {
     debug.innerHTML =
       "TARGET ENCONTRADO 🐶🐶🐶🐶";
 
+
     if (timer) {
       clearInterval(timer);
     }
+
 
     carlitosFrame = 1;
     mollyFrame = 1;
     noahFrame = 1;
     bimbaFrame = 1;
 
+
     animar();
 
+
     timer = setInterval(() => {
+
       animar();
+
     }, 500);
 
   });
@@ -326,11 +408,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   target.addEventListener("targetLost", () => {
 
-    debug.innerHTML = "TARGET PERDIDO";
+    debug.innerHTML =
+      "TARGET PERDIDO";
+
 
     if (timer) {
+
       clearInterval(timer);
       timer = null;
+
     }
 
   });
@@ -338,6 +424,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 </script>
+
 
 </body>
 </html>
