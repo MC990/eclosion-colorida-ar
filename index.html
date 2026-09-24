@@ -188,10 +188,14 @@
 
 
       <!-- ================================================= -->
-      <!-- 2. JARDÍN INTERIOR -->
+      <!-- 2. CÉSPED MEDIO -->
       <!--
-        Más alto para continuar detrás del sillón.
-        Sigue contenido dentro del target.
+        SOSTIENE:
+        - SILLÓN
+        - CARLITOS
+        - NOAH
+
+        NO ES EL EFECTO AR DELANTERO.
       -->
       <!-- ================================================= -->
 
@@ -199,7 +203,7 @@
         id="pastoAtras"
         position="0 -0.405 0.008"
         width="0.98"
-        height="0.54"
+        height="0.56"
         material="
           src: #pastoAtrasAsset;
           shader: flat;
@@ -212,17 +216,18 @@
       <!-- ================================================= -->
       <!-- 3. CORTINAS -->
       <!--
-        Más metidas.
-        Más largas.
-        Siempre detrás de la vegetación.
+        MASTER:
+        FRANJAS VERTICALES CLARAS.
+        DETRÁS DE LAS RAMAS.
+        DETRÁS DEL SILLÓN.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="cortinaIzquierda"
-        position="-0.345 0.075 0.014"
-        width="0.265"
-        height="1.12"
+        position="-0.315 0.095 0.014"
+        width="0.31"
+        height="1.14"
         material="
           src: #cortinaIzquierdaAsset;
           shader: flat;
@@ -236,9 +241,9 @@
 
       <a-plane
         id="cortinaDerecha"
-        position="0.345 0.075 0.014"
-        width="0.265"
-        height="1.12"
+        position="0.315 0.095 0.014"
+        width="0.31"
+        height="1.14"
         material="
           src: #cortinaDerechaAsset;
           shader: flat;
@@ -253,17 +258,16 @@
       <!-- ================================================= -->
       <!-- 4. ARBUSTOS -->
       <!--
-        Más altos.
-        Más anchos.
-        Conectan ramas + sillón + jardín.
+        HORIZONTE VEGETAL CONTINUO.
+        BASE OCULTA POR EL SILLÓN.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="arbustos"
-        position="0 0.045 0.025"
-        width="0.94"
-        height="0.313"
+        position="0 0.010 0.024"
+        width="0.96"
+        height="0.320"
         material="
           src: #arbustosAsset;
           shader: flat;
@@ -299,18 +303,21 @@
       <!-- ================================================= -->
       <!-- 6. RAMAS -->
       <!--
-        Se abren visualmente.
-        Suben.
-        La zona inferior queda más libre.
-        Siguen detrás del sillón.
+        MASTER:
+        - ALTAS
+        - GRUESAS
+        - VERTICALES
+        - NACEN FUERA DEL CUADRO
+        - CONECTAN CON LA BASE
+        - SIEMPRE DETRÁS DEL SILLÓN
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="ramasFrente"
-        position="0 0.115 0.045"
-        width="1.10"
-        height="0.84"
+        position="0 0.065 0.045"
+        width="1.18"
+        height="1.02"
         material="
           src: #ramasAsset;
           shader: flat;
@@ -326,13 +333,17 @@
       <!-- 7. SILLÓN -->
       <!--
         BLOQUEADO.
-        NO CAMBIO:
-        X
-        Y
-        Z
-        ANCHO
-        ALTO
-        PNG
+
+        DELANTE DE:
+        - CORTINAS
+        - ARBUSTOS
+        - RAMAS
+
+        DETRÁS DE:
+        - MOLLY
+        - BIMBA
+        - CARLITOS
+        - NOAH
       -->
       <!-- ================================================= -->
 
@@ -395,21 +406,26 @@
 
 
       <!-- ================================================= -->
-      <!-- 10. JARDÍN DELANTERO -->
+      <!-- 10. JARDÍN DELANTERO AR -->
       <!--
-        Empieza más arriba para solaparse con jardín interior.
-        Menos inclinación brusca.
-        Sigue saliendo hacia cámara.
-        Una sola capa.
+        REGLA MASTER:
+
+        NO SOSTIENE EL SILLÓN.
+        NO SOSTIENE EL FONDO.
+
+        ES LA EXTENSIÓN DEL CÉSPED HACIA CÁMARA.
+
+        SU BORDE SUPERIOR SE SOLAPA CON EL PASTO MEDIO.
+        SU PERSPECTIVA EMPIEZA DEBAJO DE LOS PERROS.
       -->
       <!-- ================================================= -->
 
       <a-plane
         id="pastoJardin"
-        position="0 -0.485 0.145"
-        width="1.12"
-        height="0.46"
-        rotation="-9 0 0"
+        position="0 -0.525 0.145"
+        width="1.10"
+        height="0.42"
+        rotation="-11 0 0"
         material="
           src: #pastoJardinAsset;
           shader: flat;
@@ -464,21 +480,21 @@
 
 
       <!-- ================================================= -->
-      <!-- 13. FLORES -->
+      <!-- 13. FLORES DEL MARCO -->
       <!--
-        MENOS FLORES.
-        SOLO DONDE HAY RAMAS.
-        NINGUNA CERCA DEL CENTRO.
+        SOLO REFUERZAN LAS RAMAS.
+        NO FLOTAN EN EL CIELO.
+        NO INVADEN EL CENTRO.
       -->
       <!-- ================================================= -->
 
 
-      <!-- IZQUIERDA -->
+      <!-- IZQUIERDA ALTA -->
 
       <a-plane
-        position="-0.405 0.285 0.180"
-        width="0.058"
-        height="0.058"
+        position="-0.425 0.315 0.180"
+        width="0.068"
+        height="0.068"
         rotation="0 0 -12"
         material="
           src: #florRosaClaroAsset;
@@ -491,11 +507,13 @@
       ></a-plane>
 
 
+      <!-- IZQUIERDA MEDIA -->
+
       <a-plane
-        position="-0.420 0.145 0.180"
-        width="0.054"
-        height="0.054"
-        rotation="0 0 10"
+        position="-0.445 0.155 0.180"
+        width="0.065"
+        height="0.065"
+        rotation="0 0 9"
         material="
           src: #florLilaAsset;
           shader: flat;
@@ -507,11 +525,13 @@
       ></a-plane>
 
 
+      <!-- IZQUIERDA BAJA -->
+
       <a-plane
-        position="-0.430 0.015 0.180"
-        width="0.038"
-        height="0.038"
-        rotation="0 0 17"
+        position="-0.455 -0.015 0.180"
+        width="0.043"
+        height="0.043"
+        rotation="0 0 18"
         material="
           src: #florAzulAsset;
           shader: flat;
@@ -523,12 +543,12 @@
       ></a-plane>
 
 
-      <!-- DERECHA -->
+      <!-- DERECHA ALTA -->
 
       <a-plane
-        position="0.405 0.275 0.180"
-        width="0.058"
-        height="0.058"
+        position="0.425 0.305 0.180"
+        width="0.068"
+        height="0.068"
         rotation="0 0 12"
         material="
           src: #florRosaClaroAsset;
@@ -541,11 +561,13 @@
       ></a-plane>
 
 
+      <!-- DERECHA MEDIA -->
+
       <a-plane
-        position="0.420 0.135 0.180"
-        width="0.054"
-        height="0.054"
-        rotation="0 0 -10"
+        position="0.445 0.145 0.180"
+        width="0.065"
+        height="0.065"
+        rotation="0 0 -9"
         material="
           src: #florLilaAsset;
           shader: flat;
@@ -557,13 +579,15 @@
       ></a-plane>
 
 
+      <!-- DERECHA BAJA -->
+
       <a-plane
-        position="0.430 0.010 0.180"
-        width="0.038"
-        height="0.038"
-        rotation="0 0 -17"
+        position="0.455 -0.020 0.180"
+        width="0.043"
+        height="0.043"
+        rotation="0 0 -18"
         material="
-          src: #florRosaOscuroAsset;
+          src: #florAzulAsset;
           shader: flat;
           transparent: true;
           alphaTest: 0.01;
@@ -580,7 +604,11 @@
 
   <!-- ===================================================== -->
   <!-- ANIMACIÓN -->
-  <!-- BLOQUEADA / MISMO SISTEMA QUE YA FUNCIONA -->
+  <!--
+    SISTEMA APROBADO.
+    NO RECONSTRUIDO.
+    500 MS.
+  -->
   <!-- ===================================================== -->
 
   <script>
