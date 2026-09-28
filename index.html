@@ -1,163 +1,32 @@
-<!-- CORTINA IZQUIERDA -->
-<a-plane
-  id="cortinaIzquierda"
-  position="-0.330 0.210 0.070"
-  rotation="0 18 0"
-  width="0.50"
-  height="0.80"
-  render-order="20"
-  material="
-    src:#cortinaIzquierdaAsset;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
+<script>
+  AFRAME.registerComponent("render-order", {
+    schema: { type: "number", default: 0 },
 
+    init: function () {
+      this.aplicarOrden = this.aplicarOrden.bind(this);
 
-<!-- CORTINA DERECHA -->
-<a-plane
-  id="cortinaDerecha"
-  position="0.390 0.200 0.070"
-  rotation="0 -18 0"
-  width="0.50"
-  height="0.80"
-  render-order="20"
-  material="
-    src:#cortinaDerechaAsset;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
+      this.el.addEventListener(
+        "object3dset",
+        this.aplicarOrden
+      );
 
+      this.aplicarOrden();
+    },
 
-<!-- RAMAS FRENTE -->
-<a-plane
-  id="ramasFrente"
-  position="0 0.165 0.160"
-  width="1.25"
-  height="0.95"
-  render-order="30"
-  material="
-    src:#ramasAsset;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
+    update: function () {
+      this.aplicarOrden();
+    },
 
+    aplicarOrden: function () {
+      const order = this.data;
 
-<!-- SILLÓN -->
-<a-plane
-  id="sillon"
-  position="0 -0.300 0.130"
-  width="0.94"
-  height="0.373"
-  render-order="40"
-  material="
-    src:#sillonAsset;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
+      this.el.object3D.traverse(function (obj) {
+        obj.renderOrder = order;
 
-
-<!-- MOLLY -->
-<a-plane
-  id="molly"
-  position="-0.18 -0.125 0.160"
-  width="0.22"
-  height="0.22"
-  render-order="50"
-  material="
-    src:#m01;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
-
-
-<!-- BIMBA — NO TOCAR X/Y -->
-<a-plane
-  id="bimba"
-  position="0.12 -0.215 0.160"
-  width="0.26"
-  height="0.26"
-  render-order="50"
-  material="
-    src:#b01;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
-
-
-<!-- PASTO JARDÍN — CAMBIO FUERTE -->
-<a-plane
-  id="pastoJardin"
-  position="0 -0.535 0.190"
-  width="2.00"
-  height="0.43"
-  rotation="-55 0 0"
-  render-order="45"
-  material="
-    src:#pastoJardinAsset;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
-
-
-<!-- CARLITOS -->
-<a-plane
-  id="carlitos"
-  position="-0.29 -0.315 0.260"
-  width="0.35"
-  height="0.35"
-  render-order="60"
-  material="
-    src:#c01;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
-
-
-<!-- NOAH -->
-<a-plane
-  id="noah"
-  position="0.29 -0.450 0.260"
-  width="0.34"
-  height="0.34"
-  render-order="60"
-  material="
-    src:#n01;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
+        if (obj.material) {
+          obj.material.needsUpdate = true;
+        }
+      });
+    }
+  });
+</script>
