@@ -8,27 +8,18 @@
     content="width=device-width, initial-scale=1.0, user-scalable=no"
   >
 
-  <title>Eclosión Colorida AR — V47 EXPERIENCIA</title>
+  <title>Eclosión Colorida AR — FINAL</title>
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
   <script>
-    /* ==================================================
-       SISTEMA DE CAPAS ESTABLE
-       ================================================== */
-
     AFRAME.registerComponent("render-order", {
       schema: { type: "number", default: 0 },
 
       init: function () {
         this.aplicarOrden = this.aplicarOrden.bind(this);
-
-        this.el.addEventListener(
-          "object3dset",
-          this.aplicarOrden
-        );
-
+        this.el.addEventListener("object3dset", this.aplicarOrden);
         this.aplicarOrden();
       },
 
@@ -52,7 +43,6 @@
     });
   </script>
 
-
   <style>
     body {
       margin: 0;
@@ -69,8 +59,8 @@
       background: rgba(0,0,0,.72);
       color: white;
 
-      padding: 8px 14px;
-      border-radius: 10px;
+      padding: 9px 15px;
+      border-radius: 12px;
 
       font-family: Arial, sans-serif;
       font-size: 13px;
@@ -86,7 +76,7 @@
 <body>
 
 <div id="debug">
-  V47 EXPERIENCIA · ESPERANDO TARGET...
+  FINAL 🌸 ECLOSIÓN COLORIDA
 </div>
 
 
@@ -99,9 +89,9 @@
 >
 
 
-  <!-- ==================================================
-       ASSETS
-       ================================================== -->
+  <!-- ================================================= -->
+  <!-- ASSETS                                            -->
+  <!-- ================================================= -->
 
   <a-assets>
 
@@ -193,9 +183,9 @@
   </a-assets>
 
 
-  <!-- ==================================================
-       CÁMARA
-       ================================================== -->
+  <!-- ================================================= -->
+  <!-- CÁMARA                                            -->
+  <!-- ================================================= -->
 
   <a-camera
     position="0 0 0"
@@ -203,9 +193,9 @@
   ></a-camera>
 
 
-  <!-- ==================================================
-       TARGET
-       ================================================== -->
+  <!-- ================================================= -->
+  <!-- TARGET                                            -->
+  <!-- ================================================= -->
 
   <a-entity
     id="target"
@@ -213,9 +203,7 @@
   >
 
 
-    <!-- ==================================================
-         CIELO
-         ================================================== -->
+    <!-- CIELO -->
 
     <a-plane
       id="cielo"
@@ -223,7 +211,6 @@
       width="0.98"
       height="1.10"
       render-order="1"
-
       material="
         src:#cieloAsset;
         shader:flat;
@@ -234,9 +221,7 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         PASTO DE ATRÁS
-         ================================================== -->
+    <!-- PASTO ATRÁS -->
 
     <a-plane
       id="pastoAtras"
@@ -244,7 +229,6 @@
       width="0.98"
       height="0.60"
       render-order="5"
-
       material="
         src:#pastoAtrasAsset;
         shader:flat;
@@ -255,9 +239,7 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         ARBUSTOS
-         ================================================== -->
+    <!-- ARBUSTOS -->
 
     <a-plane
       id="arbustos"
@@ -265,7 +247,6 @@
       width="0.98"
       height="0.355"
       render-order="10"
-
       material="
         src:#arbustosAsset;
         shader:flat;
@@ -277,10 +258,7 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         CORTINA IZQUIERDA
-         Posición final NO modificada
-         ================================================== -->
+    <!-- CORTINA IZQUIERDA -->
 
     <a-plane
       id="cortinaIzquierda"
@@ -288,7 +266,6 @@
       width="0.50"
       height="0.80"
       render-order="20"
-
       material="
         src:#cortinaIzquierdaAsset;
         shader:flat;
@@ -300,10 +277,7 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         CORTINA DERECHA
-         Posición final NO modificada
-         ================================================== -->
+    <!-- CORTINA DERECHA -->
 
     <a-plane
       id="cortinaDerecha"
@@ -311,7 +285,6 @@
       width="0.50"
       height="0.80"
       render-order="20"
-
       material="
         src:#cortinaDerechaAsset;
         shader:flat;
@@ -323,9 +296,7 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         TÍTULO
-         ================================================== -->
+    <!-- TÍTULO -->
 
     <a-plane
       id="titulo"
@@ -333,7 +304,6 @@
       width="0.53"
       height="0.265"
       render-order="25"
-
       material="
         src:#tituloAsset;
         shader:flat;
@@ -345,9 +315,7 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         RAMAS FRENTE
-         ================================================== -->
+    <!-- RAMAS DEL FRENTE -->
 
     <a-plane
       id="ramasFrente"
@@ -355,7 +323,6 @@
       width="1.25"
       height="0.95"
       render-order="30"
-
       material="
         src:#ramasAsset;
         shader:flat;
@@ -367,9 +334,9 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         FLORES IZQUIERDA
-         ================================================== -->
+    <!-- ================================================= -->
+    <!-- FLORES                                            -->
+    <!-- ================================================= -->
 
     <a-plane
       id="florIzq1"
@@ -378,7 +345,6 @@
       height="0.072"
       rotation="0 0 -12"
       render-order="35"
-
       material="
         src:#florRosaClaroAsset;
         shader:flat;
@@ -397,7 +363,6 @@
       height="0.052"
       rotation="0 0 8"
       render-order="35"
-
       material="
         src:#florRosaOscuroAsset;
         shader:flat;
@@ -416,7 +381,6 @@
       height="0.076"
       rotation="0 0 14"
       render-order="35"
-
       material="
         src:#florLilaAsset;
         shader:flat;
@@ -428,10 +392,6 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         FLORES DERECHA
-         ================================================== -->
-
     <a-plane
       id="florDer1"
       position="0.430 0.320 0.050"
@@ -439,7 +399,6 @@
       height="0.072"
       rotation="0 0 12"
       render-order="35"
-
       material="
         src:#florRosaClaroAsset;
         shader:flat;
@@ -458,7 +417,6 @@
       height="0.052"
       rotation="0 0 -8"
       render-order="35"
-
       material="
         src:#florRosaOscuroAsset;
         shader:flat;
@@ -477,7 +435,6 @@
       height="0.076"
       rotation="0 0 -14"
       render-order="35"
-
       material="
         src:#florLilaAsset;
         shader:flat;
@@ -489,9 +446,9 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         SILLÓN
-         ================================================== -->
+    <!-- ================================================= -->
+    <!-- SILLÓN                                            -->
+    <!-- ================================================= -->
 
     <a-plane
       id="sillon"
@@ -499,7 +456,6 @@
       width="0.94"
       height="0.373"
       render-order="40"
-
       material="
         src:#sillonAsset;
         shader:flat;
@@ -511,65 +467,18 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         MOLLY
-         POSICIÓN BLOQUEADA
-         ================================================== -->
-
-    <a-plane
-      id="molly"
-      position="-0.18 -0.125 0.135"
-      width="0.22"
-      height="0.22"
-      render-order="50"
-
-      material="
-        src:#m01;
-        shader:flat;
-        transparent:true;
-        alphaTest:.01;
-        depthTest:false;
-        depthWrite:false;
-      "
-    ></a-plane>
-
-
-    <!-- ==================================================
-         BIMBA
-         POSICIÓN BLOQUEADA
-         0.12 -0.215 0.135
-         ================================================== -->
-
-    <a-plane
-      id="bimba"
-      position="0.12 -0.215 0.135"
-      width="0.26"
-      height="0.26"
-      render-order="50"
-
-      material="
-        src:#b01;
-        shader:flat;
-        transparent:true;
-        alphaTest:.01;
-        depthTest:false;
-        depthWrite:false;
-      "
-    ></a-plane>
-
-
-    <!-- ==================================================
-         PASTO JARDÍN
-         ================================================== -->
+    <!-- ================================================= -->
+    <!-- PASTO JARDÍN                                      -->
+    <!-- FINAL: COMPLETAMENTE FRONTAL                      -->
+    <!-- ================================================= -->
 
     <a-plane
       id="pastoJardin"
       position="0 -0.535 0.140"
       width="2.00"
       height="0.43"
-      rotation="-7 0 0"
+      rotation="0 0 0"
       render-order="45"
-
       material="
         src:#pastoJardinAsset;
         shader:flat;
@@ -581,10 +490,51 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         CARLITOS
-         POSICIÓN BLOQUEADA
-         ================================================== -->
+    <!-- ================================================= -->
+    <!-- MOLLY                                             -->
+    <!-- ================================================= -->
+
+    <a-plane
+      id="molly"
+      position="-0.18 -0.125 0.135"
+      width="0.22"
+      height="0.22"
+      render-order="50"
+      material="
+        src:#m01;
+        shader:flat;
+        transparent:true;
+        alphaTest:.01;
+        depthTest:false;
+        depthWrite:false;
+      "
+    ></a-plane>
+
+
+    <!-- ================================================= -->
+    <!-- BIMBA — BLOQUEADA                                 -->
+    <!-- ================================================= -->
+
+    <a-plane
+      id="bimba"
+      position="0.12 -0.215 0.135"
+      width="0.26"
+      height="0.26"
+      render-order="50"
+      material="
+        src:#b01;
+        shader:flat;
+        transparent:true;
+        alphaTest:.01;
+        depthTest:false;
+        depthWrite:false;
+      "
+    ></a-plane>
+
+
+    <!-- ================================================= -->
+    <!-- CARLITOS                                          -->
+    <!-- ================================================= -->
 
     <a-plane
       id="carlitos"
@@ -592,7 +542,6 @@
       width="0.35"
       height="0.35"
       render-order="60"
-
       material="
         src:#c01;
         shader:flat;
@@ -604,10 +553,9 @@
     ></a-plane>
 
 
-    <!-- ==================================================
-         NOAH
-         POSICIÓN BLOQUEADA
-         ================================================== -->
+    <!-- ================================================= -->
+    <!-- NOAH                                              -->
+    <!-- ================================================= -->
 
     <a-plane
       id="noah"
@@ -615,7 +563,6 @@
       width="0.34"
       height="0.34"
       render-order="60"
-
       material="
         src:#n01;
         shader:flat;
@@ -632,20 +579,17 @@
 </a-scene>
 
 
-
-<!-- =====================================================
-     V47 — ANIMACIÓN / EXPERIENCIA
-     ===================================================== -->
-
 <script>
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  /* ====================================================
+     ELEMENTOS
+     ==================================================== */
+
   const target = document.querySelector("#target");
 
-  const cielo = document.querySelector("#cielo");
-  const pastoAtras = document.querySelector("#pastoAtras");
-  const arbustos = document.querySelector("#arbustos");
+  const titulo = document.querySelector("#titulo");
 
   const cortinaIzquierda =
     document.querySelector("#cortinaIzquierda");
@@ -653,30 +597,46 @@ document.addEventListener("DOMContentLoaded", () => {
   const cortinaDerecha =
     document.querySelector("#cortinaDerecha");
 
-  const titulo = document.querySelector("#titulo");
-  const ramas = document.querySelector("#ramasFrente");
+  const ramas =
+    document.querySelector("#ramasFrente");
 
-  const sillon = document.querySelector("#sillon");
+  const carlitos =
+    document.querySelector("#carlitos");
 
-  const carlitos = document.querySelector("#carlitos");
-  const molly = document.querySelector("#molly");
-  const noah = document.querySelector("#noah");
-  const bimba = document.querySelector("#bimba");
+  const molly =
+    document.querySelector("#molly");
 
-  const florIzq1 = document.querySelector("#florIzq1");
-  const florIzq2 = document.querySelector("#florIzq2");
-  const florIzq3 = document.querySelector("#florIzq3");
+  const noah =
+    document.querySelector("#noah");
 
-  const florDer1 = document.querySelector("#florDer1");
-  const florDer2 = document.querySelector("#florDer2");
-  const florDer3 = document.querySelector("#florDer3");
+  const bimba =
+    document.querySelector("#bimba");
 
-  const debug = document.querySelector("#debug");
+  const florIzq1 =
+    document.querySelector("#florIzq1");
+
+  const florIzq2 =
+    document.querySelector("#florIzq2");
+
+  const florIzq3 =
+    document.querySelector("#florIzq3");
+
+  const florDer1 =
+    document.querySelector("#florDer1");
+
+  const florDer2 =
+    document.querySelector("#florDer2");
+
+  const florDer3 =
+    document.querySelector("#florDer3");
+
+  const debug =
+    document.querySelector("#debug");
 
 
-  /* ==================================================
-     FRAMES DE LOS PERRITOS
-     ================================================== */
+  /* ====================================================
+     FRAMES
+     ==================================================== */
 
   let carlitosFrame = 1;
   let mollyFrame = 1;
@@ -686,15 +646,19 @@ document.addEventListener("DOMContentLoaded", () => {
   let timerPerros = null;
 
 
-  function cambiarFrame(perrito, prefijo, frame) {
+  function cambiarFrame(
+    elemento,
+    prefijo,
+    frame
+  ) {
 
     const numero =
       String(frame).padStart(2, "0");
 
-    perrito.setAttribute(
+    elemento.setAttribute(
       "material",
       "src",
-      `#${prefijo}${numero}`
+      "#" + prefijo + numero
     );
   }
 
@@ -743,309 +707,227 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (bimbaFrame > 4)
       bimbaFrame = 1;
+
+
+    debug.innerHTML =
+      "FINAL 🌸 ECLOSIÓN COLORIDA<br>" +
+      "🐶 " +
+      carlitosFrame + "/16 · " +
+      mollyFrame + "/4 · " +
+      noahFrame + "/4 · " +
+      bimbaFrame + "/4";
   }
 
 
 
-  /* ==================================================
-     FUNCIONES DE ENTRADA
-     ================================================== */
-
-  function ocultarElemento(elemento) {
-
-    elemento.setAttribute(
-      "scale",
-      "0.001 0.001 0.001"
-    );
-  }
-
-
-  function mostrarElemento(
-    elemento,
-    duracion = 500
-  ) {
-
-    elemento.removeAttribute(
-      "animation__entrada"
-    );
-
-    elemento.setAttribute(
-      "animation__entrada",
-      `
-        property: scale;
-        from: 0.001 0.001 0.001;
-        to: 1 1 1;
-        dur: ${duracion};
-        easing: easeOutBack
-      `
-    );
-  }
-
-
-
-  /* ==================================================
-     PREPARAR ESCENA ANTES DE ESCANEAR
-     ================================================== */
-
-  function prepararEscena() {
-
-    ocultarElemento(cielo);
-    ocultarElemento(pastoAtras);
-    ocultarElemento(arbustos);
-
-    ocultarElemento(cortinaIzquierda);
-    ocultarElemento(cortinaDerecha);
-
-    ocultarElemento(titulo);
-    ocultarElemento(ramas);
-
-    ocultarElemento(sillon);
-
-    ocultarElemento(molly);
-    ocultarElemento(bimba);
-
-    ocultarElemento(carlitos);
-    ocultarElemento(noah);
-
-    ocultarElemento(florIzq1);
-    ocultarElemento(florIzq2);
-    ocultarElemento(florIzq3);
-
-    ocultarElemento(florDer1);
-    ocultarElemento(florDer2);
-    ocultarElemento(florDer3);
-  }
-
-
-  prepararEscena();
-
-
-
-  /* ==================================================
+  /* ====================================================
      TARGET ENCONTRADO
-     ================================================== */
+     ==================================================== */
 
   target.addEventListener(
     "targetFound",
     () => {
 
       debug.innerHTML =
-        "V47 · ECLOSIÓN COLORIDA ✨";
+        "FINAL 🌸 ECLOSIÓN COLORIDA ✨";
 
 
-      /* ----------------------------------------------
-         0 ms
-         Aparece el mundo
-         ---------------------------------------------- */
+      /* -----------------------------------------------
+         TÍTULO
+         Pequeño POP
+         ----------------------------------------------- */
 
-      mostrarElemento(
-        cielo,
-        600
+      titulo.removeAttribute(
+        "animation__entrada"
       );
 
-      mostrarElemento(
-        pastoAtras,
-        650
+      titulo.setAttribute(
+        "animation__entrada",
+        `
+          property: scale;
+          from: 0.82 0.82 0.82;
+          to: 1 1 1;
+          dur: 850;
+          easing: easeOutElastic;
+        `
       );
 
 
-      /* ----------------------------------------------
-         200 ms
-         Arbustos
-         ---------------------------------------------- */
+      /* -----------------------------------------------
+         CORTINA IZQUIERDA
+
+         NO cambia su posición final.
+         ----------------------------------------------- */
+
+      cortinaIzquierda.removeAttribute(
+        "animation__entrada"
+      );
+
+      cortinaIzquierda.setAttribute(
+        "animation__entrada",
+        `
+          property: scale;
+          from: 0.90 1 1;
+          to: 1 1 1;
+          dur: 900;
+          easing: easeOutCubic;
+        `
+      );
+
+
+      /* -----------------------------------------------
+         CORTINA DERECHA
+         ----------------------------------------------- */
+
+      cortinaDerecha.removeAttribute(
+        "animation__entrada"
+      );
+
+      cortinaDerecha.setAttribute(
+        "animation__entrada",
+        `
+          property: scale;
+          from: 0.90 1 1;
+          to: 1 1 1;
+          dur: 900;
+          easing: easeOutCubic;
+        `
+      );
+
+
+      /* =================================================
+         RAMAS
+         Viento MUY suave
+         ================================================= */
+
+      ramas.setAttribute(
+        "animation__viento",
+        `
+          property: rotation;
+          from: 0 0 -0.7;
+          to: 0 0 0.7;
+          dur: 3500;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      /* =================================================
+         FLORES
+         Movimiento orgánico muy pequeño
+         ================================================= */
+
+      florIzq1.setAttribute(
+        "animation__movimiento",
+        `
+          property: rotation;
+          from: 0 0 -12;
+          to: 0 0 -9;
+          dur: 2300;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      florIzq2.setAttribute(
+        "animation__movimiento",
+        `
+          property: rotation;
+          from: 0 0 8;
+          to: 0 0 11;
+          dur: 2700;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      florIzq3.setAttribute(
+        "animation__movimiento",
+        `
+          property: rotation;
+          from: 0 0 14;
+          to: 0 0 11;
+          dur: 2500;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      florDer1.setAttribute(
+        "animation__movimiento",
+        `
+          property: rotation;
+          from: 0 0 12;
+          to: 0 0 9;
+          dur: 2400;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      florDer2.setAttribute(
+        "animation__movimiento",
+        `
+          property: rotation;
+          from: 0 0 -8;
+          to: 0 0 -11;
+          dur: 2800;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      florDer3.setAttribute(
+        "animation__movimiento",
+        `
+          property: rotation;
+          from: 0 0 -14;
+          to: 0 0 -11;
+          dur: 2600;
+          dir: alternate;
+          loop: true;
+          easing: easeInOutSine;
+        `
+      );
+
+
+      /* =================================================
+         PERRITOS
+
+         SOLO sus PNG frames.
+         NO posición.
+         NO scale.
+         NO rotation.
+         ================================================= */
+
+      carlitosFrame = 1;
+      mollyFrame = 1;
+      noahFrame = 1;
+      bimbaFrame = 1;
+
+
+      if (timerPerros) {
+        clearInterval(timerPerros);
+      }
+
+
+      /* Pequeño retraso después de reconocer la imagen */
 
       setTimeout(() => {
-
-        mostrarElemento(
-          arbustos,
-          650
-        );
-
-      }, 200);
-
-
-
-      /* ----------------------------------------------
-         400 ms
-         Cortinas
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          cortinaIzquierda,
-          700
-        );
-
-        mostrarElemento(
-          cortinaDerecha,
-          700
-        );
-
-      }, 400);
-
-
-
-      /* ----------------------------------------------
-         650 ms
-         Ramas
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          ramas,
-          750
-        );
-
-      }, 650);
-
-
-
-      /* ----------------------------------------------
-         800 ms
-         Flores
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          florIzq1,
-          450
-        );
-
-        mostrarElemento(
-          florDer1,
-          450
-        );
-
-      }, 800);
-
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          florIzq2,
-          450
-        );
-
-        mostrarElemento(
-          florDer2,
-          450
-        );
-
-      }, 950);
-
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          florIzq3,
-          450
-        );
-
-        mostrarElemento(
-          florDer3,
-          450
-        );
-
-      }, 1100);
-
-
-
-      /* ----------------------------------------------
-         1200 ms
-         Título
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          titulo,
-          800
-        );
-
-      }, 1200);
-
-
-
-      /* ----------------------------------------------
-         1450 ms
-         Sillón
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          sillon,
-          700
-        );
-
-      }, 1450);
-
-
-
-      /* ----------------------------------------------
-         1700 ms
-         Molly + Bimba
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          molly,
-          600
-        );
-
-        mostrarElemento(
-          bimba,
-          600
-        );
-
-      }, 1700);
-
-
-
-      /* ----------------------------------------------
-         2000 ms
-         Carlitos + Noah
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        mostrarElemento(
-          carlitos,
-          650
-        );
-
-        mostrarElemento(
-          noah,
-          650
-        );
-
-      }, 2000);
-
-
-
-      /* ----------------------------------------------
-         2250 ms
-         Comienza la vida
-         ---------------------------------------------- */
-
-      setTimeout(() => {
-
-        carlitosFrame = 1;
-        mollyFrame = 1;
-        noahFrame = 1;
-        bimbaFrame = 1;
 
         animarPerros();
-
-        if (timerPerros) {
-          clearInterval(
-            timerPerros
-          );
-        }
 
         timerPerros =
           setInterval(
@@ -1053,222 +935,62 @@ document.addEventListener("DOMContentLoaded", () => {
             500
           );
 
-      }, 2250);
-
-
-
-      /* ==================================================
-         MOVIMIENTO AMBIENTAL
-         ================================================== */
-
-
-      /* RAMAS — VIENTO SUAVE */
-
-      ramas.setAttribute(
-        "animation__viento",
-        `
-          property: rotation;
-          from: 0 0 -1;
-          to: 0 0 1;
-          dur: 2600;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-      /* FLORES — MOVIMIENTO DIFERENTE */
-
-      florIzq1.setAttribute(
-        "animation__flor",
-        `
-          property: rotation;
-          from: 0 0 -12;
-          to: 0 0 -7;
-          dur: 1800;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-      florIzq2.setAttribute(
-        "animation__flor",
-        `
-          property: rotation;
-          from: 0 0 8;
-          to: 0 0 13;
-          dur: 2200;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-      florIzq3.setAttribute(
-        "animation__flor",
-        `
-          property: rotation;
-          from: 0 0 14;
-          to: 0 0 9;
-          dur: 2000;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-      florDer1.setAttribute(
-        "animation__flor",
-        `
-          property: rotation;
-          from: 0 0 12;
-          to: 0 0 7;
-          dur: 1900;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-      florDer2.setAttribute(
-        "animation__flor",
-        `
-          property: rotation;
-          from: 0 0 -8;
-          to: 0 0 -13;
-          dur: 2300;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-      florDer3.setAttribute(
-        "animation__flor",
-        `
-          property: rotation;
-          from: 0 0 -14;
-          to: 0 0 -9;
-          dur: 2100;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine
-        `
-      );
-
-
-
-      /* ==================================================
-         MOVIMIENTO MUY SUAVE DE CARLITOS Y NOAH
-
-         IMPORTANTE:
-         NO tocamos position.
-         Usamos scale para no perder las coordenadas finales.
-         ================================================== */
-
-      carlitos.setAttribute(
-        "animation__vida",
-        `
-          property: scale;
-          from: 1 1 1;
-          to: 1.025 1.025 1.025;
-          dur: 1500;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine;
-          delay: 2800
-        `
-      );
-
-
-      noah.setAttribute(
-        "animation__vida",
-        `
-          property: scale;
-          from: 1 1 1;
-          to: 1.02 1.02 1.02;
-          dur: 1700;
-          dir: alternate;
-          loop: true;
-          easing: easeInOutSine;
-          delay: 3000
-        `
-      );
+      }, 650);
 
     }
   );
 
 
 
-  /* ==================================================
+  /* ====================================================
      TARGET PERDIDO
-     ================================================== */
+     ==================================================== */
 
   target.addEventListener(
     "targetLost",
     () => {
 
       debug.innerHTML =
-        "V47 · TARGET PERDIDO";
+        "FINAL 🌸 BUSCANDO ILUSTRACIÓN...";
 
 
       if (timerPerros) {
 
-        clearInterval(
-          timerPerros
-        );
+        clearInterval(timerPerros);
 
         timerPerros = null;
       }
 
 
+      /* Quitamos solo las animaciones ambientales */
+
       ramas.removeAttribute(
         "animation__viento"
       );
 
-
       florIzq1.removeAttribute(
-        "animation__flor"
+        "animation__movimiento"
       );
 
       florIzq2.removeAttribute(
-        "animation__flor"
+        "animation__movimiento"
       );
 
       florIzq3.removeAttribute(
-        "animation__flor"
+        "animation__movimiento"
       );
 
       florDer1.removeAttribute(
-        "animation__flor"
+        "animation__movimiento"
       );
 
       florDer2.removeAttribute(
-        "animation__flor"
+        "animation__movimiento"
       );
 
       florDer3.removeAttribute(
-        "animation__flor"
+        "animation__movimiento"
       );
-
-
-      carlitos.removeAttribute(
-        "animation__vida"
-      );
-
-      noah.removeAttribute(
-        "animation__vida"
-      );
-
-
-      prepararEscena();
 
     }
   );
