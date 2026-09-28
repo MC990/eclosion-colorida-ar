@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"> 
-  <meta   
+  <meta charset="UTF-8">
+
+  <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, user-scalable=no"
   >
 
-  <title>Eclosión Colorida AR — V42</title>
+  <title>Eclosión Colorida AR — V43 AR</title>
 
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -78,7 +79,7 @@
 
 <body>
 
-<div id="debug">V42 · ESPERANDO TARGET...</div>
+<div id="debug">V43 AR · ESPERANDO TARGET...</div>
 
 <a-scene
   mindar-image="imageTargetSrc: ./targets.mind;"
@@ -90,7 +91,7 @@
 
   <a-assets>
 
-    <!-- ESCENA -->
+    <!-- ==================== ESCENA ==================== -->
 
     <img id="cieloAsset"
          src="./escena/Cielo.PNG">
@@ -132,7 +133,7 @@
          src="./escena/Flor%20rosa%20obscuro.PNG">
 
 
-    <!-- CARLITOS -->
+    <!-- ==================== CARLITOS ==================== -->
 
     <img id="c01" src="./dream8/Dream%208_000001.png">
     <img id="c02" src="./dream8/Dream%208_000002.png">
@@ -152,7 +153,7 @@
     <img id="c16" src="./dream8/Dream%208_000016.png">
 
 
-    <!-- MOLLY -->
+    <!-- ==================== MOLLY ==================== -->
 
     <img id="m01" src="./molly/Dream%2010_000001.png">
     <img id="m02" src="./molly/Dream%2010_000002.png">
@@ -160,7 +161,7 @@
     <img id="m04" src="./molly/Dream%2010_000004.png">
 
 
-    <!-- NOAH -->
+    <!-- ==================== NOAH ==================== -->
 
     <img id="n01" src="./noah/Dream%2011_000001.png">
     <img id="n02" src="./noah/Dream%2011_000002.png">
@@ -168,7 +169,7 @@
     <img id="n04" src="./noah/Dream%2011_000004.png">
 
 
-    <!-- BIMBA -->
+    <!-- ==================== BIMBA ==================== -->
 
     <img id="b01" src="./bimba/Dream%209_000001%20(1).png">
     <img id="b02" src="./bimba/Dream%209_000002%20(1).png">
@@ -178,11 +179,15 @@
   </a-assets>
 
 
+  <!-- ==================== CÁMARA ==================== -->
+
   <a-camera
     position="0 0 0"
     look-controls="enabled: false"
   ></a-camera>
 
+
+  <!-- ==================== TARGET ==================== -->
 
   <a-entity
     id="target"
@@ -191,7 +196,7 @@
 
 
     <!-- ============================================== -->
-    <!-- CIELO -->
+    <!-- CIELO — FONDO -->
     <!-- ============================================== -->
 
     <a-plane
@@ -232,7 +237,6 @@
 
     <!-- ============================================== -->
     <!-- ARBUSTOS -->
-    <!-- ORDEN 10 -->
     <!-- ============================================== -->
 
     <a-plane
@@ -253,18 +257,12 @@
 
 
     <!-- ============================================== -->
-    <!-- CORTINAS -->
-    <!--
-      ORDEN 20
-
-      DELANTE DE ARBUSTOS.
-      DETRÁS DE RAMAS Y SILLÓN.
-    -->
+    <!-- CORTINAS — CAPA INTERMEDIA -->
     <!-- ============================================== -->
 
     <a-plane
       id="cortinaIzquierda"
-      position="-0.330 0.210 0.100"
+      position="-0.330 0.210 0.070"
       width="0.50"
       height="0.80"
       render-order="20"
@@ -281,7 +279,7 @@
 
     <a-plane
       id="cortinaDerecha"
-      position="0.390 0.200 0.100"
+      position="0.390 0.200 0.070"
       width="0.50"
       height="0.80"
       render-order="20"
@@ -302,7 +300,7 @@
 
     <a-plane
       id="titulo"
-      position="0 0.17 0.030"
+      position="0 0.17 0.080"
       width="0.53"
       height="0.265"
       render-order="25"
@@ -318,32 +316,32 @@
 
 
     <!-- ============================================== -->
-    <!-- RAMAS -->
-    <!-- ORDEN 30 -->
-    <!-- ============================================== -->
-<a-plane
-  id="ramasFrente"
-  position="0 0.165 0.045"
-  width="1.25"
-  height="0.95"
-  render-order="30"
-  material="
-    src:#ramasAsset;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
-
-    <!-- ============================================== -->
-    <!-- FLORES LATERALES -->
-    <!-- ORDEN 35 -->
+    <!-- RAMAS FRENTE -->
     <!-- ============================================== -->
 
     <a-plane
-      position="-0.430 0.330 0.050"
+      id="ramasFrente"
+      position="0 0.165 0.100"
+      width="1.25"
+      height="0.95"
+      render-order="30"
+      material="
+        src:#ramasAsset;
+        shader:flat;
+        transparent:true;
+        alphaTest:.01;
+        depthTest:false;
+        depthWrite:false;
+      "
+    ></a-plane>
+
+
+    <!-- ============================================== -->
+    <!-- FLORES LATERALES -->
+    <!-- ============================================== -->
+
+    <a-plane
+      position="-0.430 0.330 0.105"
       width="0.072"
       height="0.072"
       rotation="0 0 -12"
@@ -359,7 +357,7 @@
     ></a-plane>
 
     <a-plane
-      position="-0.445 0.205 0.050"
+      position="-0.445 0.205 0.105"
       width="0.052"
       height="0.052"
       rotation="0 0 8"
@@ -375,7 +373,7 @@
     ></a-plane>
 
     <a-plane
-      position="-0.435 0.090 0.050"
+      position="-0.435 0.090 0.105"
       width="0.076"
       height="0.076"
       rotation="0 0 14"
@@ -391,7 +389,7 @@
     ></a-plane>
 
     <a-plane
-      position="0.430 0.320 0.050"
+      position="0.430 0.320 0.105"
       width="0.072"
       height="0.072"
       rotation="0 0 12"
@@ -407,7 +405,7 @@
     ></a-plane>
 
     <a-plane
-      position="0.445 0.190 0.050"
+      position="0.445 0.190 0.105"
       width="0.052"
       height="0.052"
       rotation="0 0 -8"
@@ -423,7 +421,7 @@
     ></a-plane>
 
     <a-plane
-      position="0.435 0.075 0.050"
+      position="0.435 0.075 0.105"
       width="0.076"
       height="0.076"
       rotation="0 0 -14"
@@ -441,17 +439,11 @@
 
     <!-- ============================================== -->
     <!-- SILLÓN -->
-    <!--
-      ORDEN 40
-      Y BLOQUEADO = -0.300
-
-      DELANTE DE CORTINAS.
-    -->
     <!-- ============================================== -->
 
     <a-plane
       id="sillon"
-      position="0 -0.300 0.115"
+      position="0 -0.300 0.130"
       width="0.94"
       height="0.373"
       render-order="40"
@@ -472,7 +464,7 @@
 
     <a-plane
       id="molly"
-      position="-0.18 -0.125 0.135"
+      position="-0.18 -0.125 0.160"
       width="0.22"
       height="0.22"
       render-order="50"
@@ -488,36 +480,36 @@
 
 
     <!-- ============================================== -->
-    <!-- BIMBA -->
+    <!-- BIMBA — POSICIÓN X/Y FINAL BLOQUEADA -->
     <!-- ============================================== -->
 
-  <a-plane
-  id="bimba"
-  position="0.12 -0.215 0.135"
-  width="0.26"
-  height="0.26"
-  render-order="50"
-  material="
-    src:#b01;
-    shader:flat;
-    transparent:true;
-    alphaTest:.01;
-    depthTest:false;
-    depthWrite:false;
-  "
-></a-plane>
+    <a-plane
+      id="bimba"
+      position="0.12 -0.215 0.160"
+      width="0.26"
+      height="0.26"
+      render-order="50"
+      material="
+        src:#b01;
+        shader:flat;
+        transparent:true;
+        alphaTest:.01;
+        depthTest:false;
+        depthWrite:false;
+      "
+    ></a-plane>
 
 
     <!-- ============================================== -->
-    <!-- JARDÍN DELANTERO -->
+    <!-- JARDÍN DELANTERO — PISO CON PERSPECTIVA -->
     <!-- ============================================== -->
 
     <a-plane
       id="pastoJardin"
-      position="0 -0.535 0.140"
+      position="0 -0.535 0.190"
       width="2.00"
       height="0.43"
-      rotation="-7 0 0"
+      rotation="-15 0 0"
       render-order="45"
       material="
         src:#pastoJardinAsset;
@@ -531,12 +523,12 @@
 
 
     <!-- ============================================== -->
-    <!-- CARLITOS -->
+    <!-- CARLITOS — PRIMER PLANO -->
     <!-- ============================================== -->
 
     <a-plane
       id="carlitos"
-      position="-0.29 -0.315 0.170"
+      position="-0.29 -0.315 0.220"
       width="0.35"
       height="0.35"
       render-order="60"
@@ -552,12 +544,12 @@
 
 
     <!-- ============================================== -->
-    <!-- NOAH -->
+    <!-- NOAH — PRIMER PLANO -->
     <!-- ============================================== -->
 
     <a-plane
       id="noah"
-      position="0.29 -0.450 0.170"
+      position="0.29 -0.450 0.220"
       width="0.34"
       height="0.34"
       render-order="60"
@@ -576,6 +568,10 @@
 
 </a-scene>
 
+
+<!-- ================================================== -->
+<!-- ANIMACIÓN DE LOS CUATRO PERRITOS -->
+<!-- ================================================== -->
 
 <script>
 
@@ -629,7 +625,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (bimbaFrame > 4) bimbaFrame = 1;
 
     debug.innerHTML =
-      `V42 🐶 CARLITOS ${carlitosFrame}/16 · MOLLY ${mollyFrame}/4<br>
+      `V43 AR 🐶 CARLITOS ${carlitosFrame}/16 · MOLLY ${mollyFrame}/4<br>
        NOAH ${noahFrame}/4 · BIMBA ${bimbaFrame}/4`;
 
   }
@@ -638,7 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
   target.addEventListener("targetFound", () => {
 
     debug.innerHTML =
-      "V42 · TARGET ENCONTRADO 🐶🐶🐶🐶";
+      "V43 AR · TARGET ENCONTRADO 🐶🐶🐶🐶";
 
     if (timer) {
       clearInterval(timer);
@@ -661,7 +657,7 @@ document.addEventListener("DOMContentLoaded", () => {
   target.addEventListener("targetLost", () => {
 
     debug.innerHTML =
-      "V42 · TARGET PERDIDO";
+      "V43 AR · TARGET PERDIDO";
 
     if (timer) {
       clearInterval(timer);
